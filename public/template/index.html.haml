@@ -1,0 +1,76 @@
+!!!
+/[if IE 8] <html lang="en" class="ie8">
+/[if IE 9] <html lang="en" class="ie9">
+/ [if !IE]><!
+%html{:lang => "en"}
+  / <![endif]
+  / BEGIN HEAD
+  %head
+    %meta{:charset => "utf-8"}/
+    %title Ligoo Card - Administração
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    %meta{:content => "", :name => "description"}/
+    %meta{:content => "", :name => "author"}/
+    %link{:href => "assets/bootstrap/css/bootstrap.min.css", :rel => "stylesheet"}/
+    %link{:href => "assets/font-awesome/css/font-awesome.css", :rel => "stylesheet"}/
+    %link{:href => "assets/css/style.css", :rel => "stylesheet"}/
+    %link{:href => "assets/css/style_responsive.css", :rel => "stylesheet"}/
+    %link#style_color{:href => "assets/css/style_default.css", :rel => "stylesheet"}/
+    %link{:href => "assets/uniform/css/uniform.default.css", :rel => "stylesheet", :type => "text/css"}/
+  / END HEAD
+  / BEGIN BODY
+  %body
+    / BEGIN LOGO
+    #logo.center
+      %img.center{:alt => "logo", :src => "assets/img/logo.png"}/
+    / END LOGO
+    / BEGIN LOGIN
+    #login
+      / BEGIN LOGIN FORM
+      %form#loginform.form-vertical.no-padding.no-margin{:action => "home.html"}
+        %p.center Informe seu login e senha para prosseguir.
+        .control-group
+          .controls
+            .input-prepend
+              %span.add-on
+                %i.icon-user
+              %input#input-username{:placeholder => "Login", :type => "text"}/
+        .control-group
+          .controls
+            .input-prepend
+              %span.add-on
+                %i.icon-lock
+              %input#input-password{:placeholder => "Senha", :type => "password"}/
+            .block-hint.pull-right
+              %a#forget-password{:href => "javascript:;"} Esqueceu sua senha?
+            .clearfix.space5
+        %input#login-btn.btn.btn-block.btn-inverse{:type => "submit", :value => "Login"}/
+      / END LOGIN FORM
+      / BEGIN FORGOT PASSWORD FORM
+      %form#forgotform.form-vertical.no-padding.no-margin.hide{:action => "index.html"}
+        %p.center Digite seu e-mail para recuperar sua senha.
+        .control-group
+          .controls
+            .input-prepend
+              %span.add-on
+                %i.icon-envelope
+              %input#input-email{:placeholder => "E-mail", :type => "text"}/
+          .space10
+        %input#forget-btn.btn.btn-block.btn-inverse{:type => "button", :value => "Enviar"}/
+      / END FORGOT PASSWORD FORM
+    / END LOGIN
+    / BEGIN COPYRIGHT
+    #login-copyright
+      2013 &copy; Ligoo Card - Administração
+    / END COPYRIGHT
+    / BEGIN JAVASCRIPTS
+    %script{:src => "assets/js/jquery-1.8.3.min.js"}
+    %script{:src => "assets/bootstrap/js/bootstrap.min.js"}
+    %script{:src => "assets/js/jquery.blockui.js"}
+    %script{:src => "assets/js/app.js"}
+    :javascript
+      jQuery(document).ready(function() {     
+        App.initLogin();
+      });
+      / END JAVASCRIPTS
+  / END BODY
