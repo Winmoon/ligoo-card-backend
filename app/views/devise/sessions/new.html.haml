@@ -1,0 +1,20 @@
+= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), html: { class: 'form-vertical no-padding no-margin' }) do |f|
+  %p.center Informe seu login e senha para prosseguir.
+  .control-group
+    .controls
+      .input-prepend
+        %span.add-on
+          %i.icon-user
+        = f.input_field :email, :autofocus => true, placeholder: t('activerecord.attributes.admin.email')
+  .control-group
+    .controls
+      .input-prepend
+        %span.add-on
+          %i.icon-lock
+        = f.password_field :password, placeholder: t('activerecord.attributes.admin.password')
+      .block-hint.pull-right
+        = render "devise/shared/links"
+      .clearfix.space5
+  = f.button :submit, "Login", class: 'btn btn-block btn-inverse'
+
+

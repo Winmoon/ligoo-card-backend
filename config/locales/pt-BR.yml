@@ -1,0 +1,34 @@
+pt-BR:
+
+  activerecord:
+    models:
+      establishment: Estabelecimento
+
+    attributes:
+      admin:
+        email: E-mail
+        password: Senha
+        password_confirmation: Confirme a senha
+        current_password: Sua senha atual
+      establishment:
+        email: E-mail
+        password: Senha
+        password_confirmation: Confirme a senha
+        name: Nome
+        address: Endereço
+        phone: Telefone
+        description: Descrição
+        latitude: Latitude
+        longitude: Longitude
+        ll: LL
+
+  dialog:
+    confirm: Você tem certeza disso?
+  helpers:
+    submit:
+      create: "Cadastrar"
+      update: "Salvar alterações"
+
+  errors:
+    messages:
+      blank: Este campo é obrigatório

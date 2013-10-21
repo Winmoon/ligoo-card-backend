@@ -6,8 +6,8 @@ gem 'rails', '4.0.0'
 # Use sqlite3 as the database for Active Record
 gem 'pg'
 
-gem "haml"
-gem "haml-rails"
+gem 'haml'
+gem 'haml-rails'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -37,4 +37,5 @@ end
 
 gem 'paperclip'
 gem 'aws-sdk'
-gem 'simple_form'
+gem 'simple_form', '~> 3.0.0'
+gem 'devise', '~> 3.1.0'

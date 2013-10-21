@@ -1,0 +1,35 @@
+.row-fluid
+  .span12
+    %h3.page-title
+      Dados de acesso
+    %ul.breadcrumb
+      %li
+        %i.icon-home
+        = link_to 'Dashboard', admin_index_path
+        %span.icon-angle-right
+      %li
+        = link_to "Dados de acesso", edit_admin_registration_path
+        %span.icon-angle-right
+      %li Editar
+.row-fluid
+  .span12
+    .widget
+      .widget-title
+        %h4
+          %i.icon-gift
+          Editar dados de acesso
+        %span.tools
+          %a.icon-refresh{:href => "javascript:location.reload();;"}
+      .widget-body.form
+        = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, class: 'form-horizontal' }) do |f|
+          = f.error_notification
+          .form-inputs
+            = f.input :email, :required => true, :autofocus => true
+            - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+              %p
+                Currently waiting confirmation for: #{resource.unconfirmed_email}
+            = f.input :password, :autocomplete => "off", :hint => "Deixe em branco se não deseja alterá-la", :required => false
+            = f.input :password_confirmation, :required => false
+            = f.input :current_password, :hint => "Nós precisamos da sua senha atual para confirmar as alterações", :required => true
+          .form-actions
+            = f.button :submit, "Finalizar alterações"

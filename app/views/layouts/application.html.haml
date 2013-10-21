@@ -10,7 +10,7 @@
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
-    -#= yield
+
   %body.fixed-top
     / BEGIN HEADER
     #header.navbar.navbar-inverse.navbar-fixed-top
@@ -65,6 +65,10 @@
               %i.icon-home
               Dashboard
           %li
+            = link_to establishments_path do
+              %i.icon-group
+              Estabelecimentos
+          %li
             %a{:href => "clientes.html"}
               %i.icon-group
               Clientes
@@ -94,174 +98,13 @@
       #body
         / BEGIN PAGE CONTAINER
         .container-fluid
-          / BEGIN PAGE HEADER
-          .row-fluid
-            .span12
-              %h3.page-title
-                Painel de Controle de Nome da Empresa
-              %ul.breadcrumb
-                %li
-                  %i.icon-home
-                  %a{:href => "index.html"} Dashboard
-                  %span.icon-angle-right
-                %li
-                  %a{:href => "#"} Página Inicial
-          / END PAGE HEADER
-          / BEGIN PAGE CONTENT
-          .row-fluid
-            .span8
-              / BEGIN SAMPLE TABLE widget
-              .widget
-                .widget-title
-                  %h4
-                    %i.icon-user
-                    Últimos Cadastros
-                  %span.tools
-                    %a.icon-chevron-down{:href => "javascript:;"}
-                    %a.icon-refresh{:href => "javascript:;"}
-                .widget-body
-                  %table.table.table-hover
-                    %thead
-                      %tr
-                        %th #
-                        %th Nome
-                        %th Cidade/Estado
-                        %th
-                    %tbody
-                      %tr
-                        %td 1
-                        %td Vinícius de Lana Silva
-                        %td Goiânia/Goiás
-                        %td
-                          %a.btn.mini.green-stripe{:href => "dadoscliente.html"} Ver
-                      %tr
-                        %td 2
-                        %td Manoel Antonio da Silva Junior
-                        %td Goiânia/Goiás
-                        %td
-                          %a.btn.mini.green-stripe{:href => "dadoscliente.html"} Ver
-                      %tr
-                        %td 3
-                        %td Vinícius de Lana Silva
-                        %td Goiânia/Goiás
-                        %td
-                          %a.btn.mini.green-stripe{:href => "dadoscliente.html"} Ver
-                      %tr
-                        %td 4
-                        %td Vinícius de Lana Silva
-                        %td Goiânia/Goiás
-                        %td
-                          %a.btn.mini.green-stripe{:href => "dadoscliente.html"} Ver
-                      %tr
-                        %td 5
-                        %td Vinícius de Lana Silva
-                        %td Goiânia/Goiás
-                        %td
-                          %a.btn.mini.green-stripe{:href => "dadoscliente.html"} Ver
-                      %tr
-                        %td 6
-                        %td Vinícius de Lana Silva
-                        %td Goiânia/Goiás
-                        %td
-                          %a.btn.mini.green-stripe{:href => "dadoscliente.html"} Ver
-                      %tr
-                        %td 7
-                        %td Vinícius de Lana Silva
-                        %td Goiânia/Goiás
-                        %td
-                          %a.btn.mini.green-stripe{:href => "dadoscliente.html"} Ver
-                      %tr
-                        %td 8
-                        %td Vinícius de Lana Silva
-                        %td Goiânia/Goiás
-                        %td
-                          %a.btn.mini.green-stripe{:href => "dadoscliente.html"} Ver
-                      %tr
-                        %td 9
-                        %td Vinícius de Lana Silva
-                        %td Goiânia/Goiás
-                        %td
-                          %a.btn.mini.green-stripe{:href => "dadoscliente.html"} Ver
-                      %tr
-                      %tr
-                        %td 10
-                        %td Vinícius de Lana Silva
-                        %td Goiânia/Goiás
-                        %td
-                          %a.btn.mini.green-stripe{:href => "dadoscliente.html"} Ver
-                      %tr
-                  .space5
-                  %a.pull-right{:href => "clientes.html"} Ver todos clientes
-                  .clearfix.no-top-space.no-bottom-space
-              / END SAMPLE TABLE widget
-            .span4
-              / BEGIN NOTIFICATIONS PORTLET
-              .widget
-                .widget-title
-                  %h4
-                    %i.icon-tags
-                    Últimas Validações
-                  %span.tools
-                    %a.icon-chevron-down{:href => "javascript:;"}
-                    %a.icon-refresh{:href => "javascript:;"}
-                .widget-body
-                  %ul.item-list.scroller.padding{"data-always-visible" => "1", "data-height" => "307"}
-                    %li
-                      %span Vinícius L.
-                      %span.small.italic.pull-right 09/08/2013 14:20:17
-                    %li
-                      %span Vinícius L.
-                      %span.small.italic.pull-right 09/08/2013 14:20:17
-                    %li
-                      %span Vinícius L.
-                      %span.small.italic.pull-right 09/08/2013 14:20:17
-                    %li
-                      %span Vinícius L.
-                      %span.small.italic.pull-right 09/08/2013 14:20:17
-                    %li
-                      %span Vinícius L.
-                      %span.small.italic.pull-right 09/08/2013 14:20:17
-                    %li
-                      %span Vinícius L.
-                      %span.small.italic.pull-right 09/08/2013 14:20:17
-                    %li
-                      %span Vinícius L.
-                      %span.small.italic.pull-right 09/08/2013 14:20:17
-                    %li
-                      %span Vinícius L.
-                      %span.small.italic.pull-right 09/08/2013 14:20:17
-                    %li
-                      %span Vinícius L.
-                      %span.small.italic.pull-right 09/08/2013 14:20:17
-                    %li
-                      %span Vinícius L.
-                      %span.small.italic.pull-right 09/08/2013 14:20:17
-                    %li
-                      %span Vinícius L.
-                      %span.small.italic.pull-right 09/08/2013 14:20:17
-                    %li
-                      %span Vinícius L.
-                      %span.small.italic.pull-right 09/08/2013 14:20:17
-                    %li
-                      %span Vinícius L.
-                      %span.small.italic.pull-right 09/08/2013 14:20:17
-                    %li
-                      %span Vinícius L.
-                      %span.small.italic.pull-right 09/08/2013 14:20:17
-                    %li
-                      %span Vinícius L.
-                      %span.small.italic.pull-right 09/08/2013 14:20:17
-                    %li
-                      %span
-                        %a.pull-right{:href => "clientes.html"} Ver pontos distribuidos
-              / END NOTIFICATIONS PORTLET
-          / END dPAGE CONTENT
-        / END PAGE CONTAINER
-      / END PAGE
-    / END CONTAINER
-    / BEGIN FOOTER
+          - flash.each do |key, msg|
+            .alert{class: key}
+              = msg
+          = yield
+
     #footer
-      2013 &copy; Ligoo Card - Administração
+      2013 &copy; Ligoo Card - Administração aaaa
       .span.pull-right
         %span.go-top
           %i.icon-arrow-up

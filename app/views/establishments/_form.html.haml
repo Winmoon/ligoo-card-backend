@@ -1,13 +1,17 @@
-= simple_form_for(@establishment) do |f|
+= simple_form_for(@establishment, html: { class: 'form-horizontal' }) do |f|
   = f.error_notification
-
   .inputs
+
     = f.input :name
     = f.input :address
     = f.input :phone
     = f.input :description
     = f.input :latitude
     = f.input :longitude
+    = f.input :email
+    = f.input :password
+    = f.input :password_confirmation
 
-  .actions
-    = f.button :submit
+  .form-actions
+    = link_to 'Cancelar', establishments_path, class: 'btn'
+    = f.button :submit, class: 'btn btn-success'

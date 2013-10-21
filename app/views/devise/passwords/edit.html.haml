@@ -1,0 +1,22 @@
+= simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), html: { :method => :put, class: 'form-vertical no-padding no-margin' }) do |f|
+  = f.error_notification
+  = f.input :reset_password_token, :as => :hidden
+  = f.full_error :reset_password_token
+  %p.center Insira sua nova senha
+  .control-group
+    .controls
+      .input-prepend
+        %span.add-on
+          %i.icon-user
+        = f.password_field :password, :required => true, :autofocus => true, placeholder: t('activerecord.attributes.admin.password')
+  .control-group
+    .controls
+      .input-prepend
+        %span.add-on
+          %i.icon-lock
+        = f.password_field :password_confirmation, :required => true, :autofocus => true, placeholder: t('activerecord.attributes.admin.password_confirmation')
+      .block-hint.pull-right
+        = render "devise/shared/links"
+      .clearfix.space5
+  = f.button :submit, "Salvar nova senha", class: 'btn btn-block btn-inverse'
+

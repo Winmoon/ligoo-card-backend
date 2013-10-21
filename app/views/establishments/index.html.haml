@@ -1,29 +1,47 @@
-%h1 Listing establishments
-
-%table
-  %tr
-    %th Name
-    %th Address
-    %th Phone
-    %th Description
-    %th Latitude
-    %th Longitude
-    %th
-    %th
-    %th
-
-  - @establishments.each do |establishment|
-    %tr
-      %td= establishment.name
-      %td= establishment.address
-      %td= establishment.phone
-      %td= establishment.description
-      %td= establishment.latitude
-      %td= establishment.longitude
-      %td= link_to 'Show', establishment
-      %td= link_to 'Edit', edit_establishment_path(establishment)
-      %td= link_to 'Destroy', establishment, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New Establishment', new_establishment_path
+.row-fluid
+  .span12
+    %h3.page-title
+      Estabelecimentos
+    %ul.breadcrumb
+      %li
+        %i.icon-home
+        = link_to 'Dashboard', admin_index_path
+        %span.icon-angle-right
+      %li
+        Estabelecimentos
+= link_to 'Cadastrar Estabelecimento', new_establishment_path, class: 'btn btn-info'
+%br/
+%br/
+.row-fluid
+  .span12
+    .widget
+      .widget-title
+        %h4
+          %i.icon-group
+          Estabelecimentos
+        %span.tools
+          %a.icon-refresh{:href => "javascript:location.reload();"}
+      .widget-body
+        %table#sample_1.table.table-striped.table-bordered
+          %thead
+            %tr
+              %th= t('activerecord.attributes.establishment.name')
+              %th= t('activerecord.attributes.establishment.address')
+              %th= t('activerecord.attributes.establishment.phone')
+              %th= t('activerecord.attributes.establishment.description')
+              %th LL
+              %th
+          %tbody
+            - @establishments.each do |establishment|
+              %tr.odd.gradeX
+                %td= establishment.name
+                %td= establishment.address
+                %td= establishment.phone
+                %td= establishment.description
+                %td #{establishment.latitude},#{establishment.longitude}
+                %td.actions
+                  .btn-group
+                    = link_to edit_establishment_path(establishment), class: 'btn', title: 'Editar' do
+                      %i.icon-edit
+                    = link_to establishment, :method => :delete, :data => { :confirm => t('dialog.confirm') }, class: 'btn', title: 'Excluír' do
+                      %i.icon-remove

@@ -1,4 +1,4 @@
-class EstablishmentsController < ApplicationController
+class EstablishmentsController < AdminController
   before_action :set_establishment, only: [:show, :edit, :update, :destroy]
 
   # GET /establishments
@@ -28,7 +28,7 @@ class EstablishmentsController < ApplicationController
 
     respond_to do |format|
       if @establishment.save
-        format.html { redirect_to @establishment, notice: 'Establishment was successfully created.' }
+        format.html { redirect_to establishments_path, notice: 'Establishment was successfully created.' }
         format.json { render action: 'show', status: :created, location: @establishment }
       else
         format.html { render action: 'new' }
@@ -42,7 +42,7 @@ class EstablishmentsController < ApplicationController
   def update
     respond_to do |format|
       if @establishment.update(establishment_params)
-        format.html { redirect_to @establishment, notice: 'Establishment was successfully updated.' }
+        format.html { redirect_to establishments_path, notice: 'Establishment was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

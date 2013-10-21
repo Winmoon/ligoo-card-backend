@@ -1,0 +1,14 @@
+= simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), html: { :method => :post, class: 'form-vertical no-padding no-margin' }) do |f|
+  = f.error_notification
+  %p.center Esqueceu a sua senha?
+  .control-group
+    .controls
+      .input-prepend
+        %span.add-on
+          %i.icon-user
+        = f.input_field :email, :autofocus => true, placeholder: t('activerecord.attributes.admin.email')
+      .block-hint.pull-right
+        = render "devise/shared/links"
+      .clearfix.space5
+  = f.button :submit, "Enviar instruções", class: 'btn btn-block btn-inverse'
+
