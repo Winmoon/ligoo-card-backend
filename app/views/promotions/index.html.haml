@@ -27,6 +27,7 @@
             %tr
               %th= t('activerecord.attributes.promotion.description')
               %th= t('activerecord.attributes.promotion.points')
+              %th= t('activerecord.attributes.promotion.created_at')
               %th= t('activerecord.attributes.promotion.valid_until')
               %th
           %tbody
@@ -34,6 +35,7 @@
               %tr.odd.gradeX
                 %td= promotion.description
                 %td= promotion.points
+                %td= l(promotion.created_at.to_date, format: :short)
                 %td= l(promotion.valid_until, format: :long)
                 %td.actions
                   .btn-group

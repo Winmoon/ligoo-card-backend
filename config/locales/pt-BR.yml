@@ -6,11 +6,13 @@ pt-BR:
 
     attributes:
       admin:
+        created_at: Cadastro
         email: E-mail
         password: Senha
         password_confirmation: Confirme a senha
         current_password: Sua senha atual
       establishment:
+        created_at: Cadastro
         email: E-mail
         password: Senha
         password_confirmation: Confirme a senha
@@ -24,9 +26,15 @@ pt-BR:
         ll: LL
         logo: "Logo"
       promotion:
+        created_at: Cadastro
         description: Oferta
         points: Pontos
         valid_until: Validade
+        errors:
+          last_post: Você só pode cadastrar uma notícia por semana
+      news:
+        created_at: Cadastro
+        news: Notícia
   dialog:
     confirm: Você tem certeza disso?
   helpers:

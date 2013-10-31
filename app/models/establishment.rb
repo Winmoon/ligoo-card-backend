@@ -3,7 +3,12 @@ class Establishment < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
   has_attached_file :logo, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
+
+  has_many :promotions
+  has_many :news
+
   validates :name, :address, :phone, presence: true, length: { maximum: 255 }
   validates :latitude, :longitude, presence: true
   validates :logo, :attachment_presence => true

@@ -1,0 +1,28 @@
+.row-fluid
+  .span12
+    %h3.page-title
+      Novidade
+    %ul.breadcrumb
+      %li
+        %i.icon-home
+        = link_to 'Dashboard', establishment_index_path
+        %span.icon-angle-right
+      %li
+        = link_to "Novidades", news_index_path
+        %span.icon-angle-right
+      %li Cadastrar
+/ END PAGE HEADER
+/ BEGIN PAGE CONTENT
+.row-fluid
+  .span12
+    / BEGIN SAMPLE FORM widget
+    .widget
+      .widget-title
+        %h4
+          %i.icon-gift
+          Cadastrar Novidade
+        %span.tools
+          %a.icon-refresh{:href => "javascript:location.reload();;"}
+      .widget-body.form
+        = render 'form'
+

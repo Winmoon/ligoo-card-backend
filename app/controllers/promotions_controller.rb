@@ -2,21 +2,21 @@ class PromotionsController < EstablishmentController
   before_action :set_promotion, only: [:show, :edit, :update, :destroy]
 
   def index
-    @promotions = Promotion.paginate(:page => params[:page], :per_page => 30)
+    @promotions = current_establishment.promotions.paginate(:page => params[:page], :per_page => 30)
   end
 
   def show
   end
 
   def new
-    @promotion = Promotion.new
+    @promotion = current_establishment.promotions.new
   end
 
   def edit
   end
 
   def create
-    @promotion = Promotion.new(promotion_params)
+    @promotion = current_establishment.promotions.new(promotion_params)
 
     respond_to do |format|
       if @promotion.save
@@ -51,7 +51,7 @@ class PromotionsController < EstablishmentController
 
   private
     def set_promotion
-      @promotion = Promotion.find(params[:id])
+      @promotion = current_establishment.promotions.find(params[:id])
     end
 
     def promotion_params

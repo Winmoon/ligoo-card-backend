@@ -52,7 +52,7 @@
               %li.active
                 = link_to 'Cartão de Fidelidade', promotions_path
               %li
-                %a{:href => "novidades.html"} Novidades
+                = link_to 'Novidades', news_index_path
       #body
         .container-fluid
           - flash.each do |key, msg|
