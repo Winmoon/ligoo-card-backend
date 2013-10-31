@@ -3,14 +3,16 @@
   .inputs
 
     = f.input :name
-    = f.input :address
-    = f.input :phone
-    = f.input :description
-    = f.input :latitude
-    = f.input :longitude
-    = f.input :email
-    = f.input :password
-    = f.input :password_confirmation
+    = f.input :phone, input_html: { class: 'span2' }
+    = f.input :address, input_html: { class: 'span6' }
+    = f.input :description, as: :text, input_html: { class: 'span6' }
+    = f.input :latitude, as: :string
+    = f.input :longitude, as: :string
+    = f.input :logo
+    - if @establishment.new_record?
+      = f.input :email, required: true
+      = f.input :password, required: true
+      = f.input :password_confirmation, required: true
 
   .form-actions
     = link_to 'Cancelar', establishments_path, class: 'btn'

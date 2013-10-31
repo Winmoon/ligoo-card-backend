@@ -2,7 +2,7 @@
 %html
   %head
     %meta{:charset => "utf-8"}/
-    %title Ligoo Card - Administração
+    %title Ligoo Card - establishmentistração
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
     %meta{:content => "", :name => "description"}/
     %meta{:content => "", :name => "author"}/
@@ -31,22 +31,28 @@
                   %b.caret
                 %ul.dropdown-menu
                   %li
-                    = link_to edit_admin_registration_path do
+                    = link_to edit_establishment_registration_path do
                       %i.icon-user
                       Dados de acesso
                   %li.divider
                   %li
-                    = link_to destroy_admin_session_path, :method => :delete do
+                    = link_to destroy_establishment_session_path, :method => :delete do
                       %i.icon-key
                       Sair
     #container.row-fluid
       #sidebar.nav-collapse.collapse
         .sidebar-toggler.hidden-phone
         %ul
-          %li.active
-            = link_to establishments_path do
-              %i.icon-group
-              Estabelecimentos
+          %li.has-sub.active
+            %a{:href => "javascript:;"}
+              %i.icon-gift
+              Promoções
+              %span.arrow
+            %ul.sub
+              %li.active
+                = link_to 'Cartão de Fidelidade', promotions_path
+              %li
+                %a{:href => "novidades.html"} Novidades
       #body
         .container-fluid
           - flash.each do |key, msg|
@@ -56,7 +62,7 @@
           = yield
 
     #footer
-      2013 &copy; Ligoo Card - Administração
+      2013 &copy; Ligoo Card - establishmentistração
       .span.pull-right
         %span.go-top
           %i.icon-arrow-up

@@ -25,20 +25,20 @@
         %table#sample_1.table.table-striped.table-bordered
           %thead
             %tr
+              %th= t('activerecord.attributes.establishment.logo')
               %th= t('activerecord.attributes.establishment.name')
               %th= t('activerecord.attributes.establishment.address')
               %th= t('activerecord.attributes.establishment.phone')
-              %th= t('activerecord.attributes.establishment.description')
-              %th LL
+              %th= t('activerecord.attributes.establishment.email')
               %th
           %tbody
             - @establishments.each do |establishment|
               %tr.odd.gradeX
+                %td= image_tag establishment.logo(:thumb)
                 %td= establishment.name
                 %td= establishment.address
                 %td= establishment.phone
-                %td= establishment.description
-                %td #{establishment.latitude},#{establishment.longitude}
+                %td= establishment.email
                 %td.actions
                   .btn-group
                     = link_to edit_establishment_path(establishment), class: 'btn', title: 'Editar' do

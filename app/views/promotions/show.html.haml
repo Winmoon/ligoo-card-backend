@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @promotion.name
+%p
+  %b Address:
+  = @promotion.address
+%p
+  %b Phone:
+  = @promotion.phone
+%p
+  %b Description:
+  = @promotion.description
+%p
+  %b Latitude:
+  = @promotion.latitude
+%p
+  %b Longitude:
+  = @promotion.longitude
+
+= link_to 'Edit', edit_promotion_path(@promotion)
+\|
+= link_to 'Back', promotions_path

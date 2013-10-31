@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  description: MyString
+  points: 1
+  valid_until: 2013-10-31 16:51:17
+
+two:
+  description: MyString
+  points: 1
+  valid_until: 2013-10-31 16:51:17

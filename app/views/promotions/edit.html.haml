@@ -1,28 +1,24 @@
 .row-fluid
   .span12
     %h3.page-title
-      Estabelecimento
+      Promoção
     %ul.breadcrumb
       %li
         %i.icon-home
-        = link_to 'Dashboard', admin_index_path
+        = link_to 'Dashboard', establishment_index_path
         %span.icon-angle-right
       %li
-        = link_to "Estabelecimentos", establishments_path
+        = link_to "Cartão de Fidelidade", promotions_path
         %span.icon-angle-right
-      %li Cadastrar
-/ END PAGE HEADER
-/ BEGIN PAGE CONTENT
+      %li Editar
 .row-fluid
   .span12
-    / BEGIN SAMPLE FORM widget
     .widget
       .widget-title
         %h4
-          %i.icon-group
-          Cadastrar Estabelecimento
+          %i.icon-gift
+          Editar promoção
         %span.tools
           %a.icon-refresh{:href => "javascript:location.reload();;"}
       .widget-body.form
         = render 'form'
-

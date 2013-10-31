@@ -99,7 +99,8 @@
         / BEGIN PAGE CONTAINER
         .container-fluid
           - flash.each do |key, msg|
-            .alert{class: key}
+            %br
+            .alert{class: "alert-#{key}"}
               = msg
           = yield
 

@@ -1,0 +1,44 @@
+.row-fluid
+  .span12
+    %h3.page-title
+      Promoções
+    %ul.breadcrumb
+      %li
+        %i.icon-home
+        = link_to 'Dashboard', establishment_index_path
+        %span.icon-angle-right
+      %li
+        Cartão de Fidelidade
+= link_to 'Cadastrar Promoção', new_promotion_path, class: 'btn btn-info'
+%br/
+%br/
+.row-fluid
+  .span12
+    .widget
+      .widget-title
+        %h4
+          %i.icon-gift
+          Promoções
+        %span.tools
+          %a.icon-refresh{:href => "javascript:location.reload();"}
+      .widget-body
+        %table#sample_1.table.table-striped.table-bordered
+          %thead
+            %tr
+              %th= t('activerecord.attributes.promotion.description')
+              %th= t('activerecord.attributes.promotion.points')
+              %th= t('activerecord.attributes.promotion.valid_until')
+              %th
+          %tbody
+            - @promotions.each do |promotion|
+              %tr.odd.gradeX
+                %td= promotion.description
+                %td= promotion.points
+                %td= l(promotion.valid_until, format: :long)
+                %td.actions
+                  .btn-group
+                    = link_to edit_promotion_path(promotion), class: 'btn', title: 'Editar' do
+                      %i.icon-edit
+                    = link_to promotion, :method => :delete, :data => { :confirm => t('dialog.confirm') }, class: 'btn', title: 'Excluír' do
+                      %i.icon-remove
+        = will_paginate @promotions, :renderer => BootstrapPaginationHelper::LinkRenderer

@@ -14,6 +14,7 @@ pt-BR:
         email: E-mail
         password: Senha
         password_confirmation: Confirme a senha
+        current_password: Sua senha atual
         name: Nome
         address: Endereço
         phone: Telefone
@@ -21,7 +22,11 @@ pt-BR:
         latitude: Latitude
         longitude: Longitude
         ll: LL
-
+        logo: "Logo"
+      promotion:
+        description: Oferta
+        points: Pontos
+        valid_until: Validade
   dialog:
     confirm: Você tem certeza disso?
   helpers:
@@ -29,6 +34,8 @@ pt-BR:
       create: "Cadastrar"
       update: "Salvar alterações"
 
-  errors:
-    messages:
-      blank: Este campo é obrigatório
+  messages:
+    create:
+      success: "Dados cadastrados com sucesso"
+    update:
+      success: "Dados atualizados com sucesso"

@@ -15,8 +15,7 @@
       = image_tag 'logo.png', class: 'center', alt: "Ligoo Card"
     #login
       - flash.each do |key, msg|
-        .alert.alert-danger{class: key}
-          = msg
+        = msg
       = yield
     #login-copyright
       2013 &copy; Ligoo Card - Administração

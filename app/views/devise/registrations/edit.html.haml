@@ -5,10 +5,10 @@
     %ul.breadcrumb
       %li
         %i.icon-home
-        = link_to 'Dashboard', admin_index_path
+        = link_to 'Dashboard', send("#{resource_name}_index_path")
         %span.icon-angle-right
       %li
-        = link_to "Dados de acesso", edit_admin_registration_path
+        = link_to "Dados de acesso", send("edit_#{resource_name}_registration_path")
         %span.icon-angle-right
       %li Editar
 .row-fluid

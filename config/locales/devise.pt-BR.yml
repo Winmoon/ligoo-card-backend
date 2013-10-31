@@ -13,7 +13,7 @@ pt-BR:
       locked: "Sua conta está bloqueada."
       not_found_in_database: "Email ou senha inválida."
       timeout: "A sua sessão expirou, por favor faça login novamente para continuar."
-      unauthenticated: "Você precisa registrar-se ou fazer login para continuar."
+      unauthenticated: ""
       unconfirmed: "Você deve confirmar sua conta antes de continuar."
     mailer:
       confirmation_instructions:
