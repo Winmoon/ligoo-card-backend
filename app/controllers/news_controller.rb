@@ -44,7 +44,7 @@ class NewsController < EstablishmentController
   def destroy
     @news.destroy
     respond_to do |format|
-      format.html { redirect_to news_url }
+      format.html { redirect_to news_index_url }
       format.json { head :no_content }
     end
   end
