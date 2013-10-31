@@ -2,7 +2,7 @@ class EstablishmentsController < AdminController
   before_action :set_establishment, only: [:show, :edit, :update, :destroy]
 
   def index
-    @establishments = Establishment.all
+    @establishments = Establishment.paginate(:page => params[:page], :per_page => 30)
   end
 
   def show

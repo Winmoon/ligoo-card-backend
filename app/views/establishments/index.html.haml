@@ -45,3 +45,4 @@
                       %i.icon-edit
                     = link_to establishment, :method => :delete, :data => { :confirm => t('dialog.confirm') }, class: 'btn', title: 'Excluír' do
                       %i.icon-remove
+        = will_paginate @establishments, :renderer => BootstrapPaginationHelper::LinkRenderer

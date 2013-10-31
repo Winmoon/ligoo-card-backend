@@ -2,7 +2,7 @@ class PromotionsController < EstablishmentController
   before_action :set_promotion, only: [:show, :edit, :update, :destroy]
 
   def index
-    @promotions = Promotion.paginate(:page => params[:page], :per_page => 1)
+    @promotions = Promotion.paginate(:page => params[:page], :per_page => 30)
   end
 
   def show

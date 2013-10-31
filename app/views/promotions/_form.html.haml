@@ -2,9 +2,9 @@
   = f.error_notification
   .inputs
 
-    = f.input :description, input_html: { class: 'span6' }
-    = f.input :points, input_html: { class: 'span1' }
-    = f.input :valid_until
+    = f.input :description, input_html: { class: 'input-xxlarge popovers', data: { content: "Almoce no King e ganhe 1 ponto.", "original-title" => "Exemplo", trigger: "hover" } }
+    = f.input :points, input_html: { class: 'input-small popovers', data: { content: "Quantidade de pontos o cliente vai ganhar", "original-title" => t('activerecord.attributes.promotion.points'), trigger: "hover" } }
+    = f.input :valid_until, input_html: { class: 'input-small popovers', data: { content: "Tempo de validade da promoção.", "original-title" => t('activerecord.attributes.promotion.valid_until'), trigger: "hover" } }
 
   .form-actions
     = link_to 'Cancelar', promotions_path, class: 'btn'
