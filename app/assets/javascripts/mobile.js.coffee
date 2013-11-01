@@ -1,6 +1,6 @@
 #= require util/base64
 
-root_url = "http://localhost:3000/"
+root_url = "http://ligoo-card.herokuapp.com/"
 
 url = (url) ->
   root_url + url

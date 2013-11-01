@@ -7,6 +7,7 @@ module CorsHelper
       headers['Access-Control-Allow-Headers'] = '*,x-requested-with,Content-Type,If-Modified-Since,If-None-Match,Auth-User-Token'
       headers['Access-Control-Max-Age'] = '86400'
       headers['Access-Control-Allow-Credentials'] = 'true'
+
     end
   end
 end
