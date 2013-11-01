@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131031210448) do
+ActiveRecord::Schema.define(version: 20131101182853) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -68,6 +68,17 @@ ActiveRecord::Schema.define(version: 20131031210448) do
 
   add_index "news", ["establishment_id"], name: "index_news_on_establishment_id", using: :btree
 
+  create_table "points", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "establishment_id"
+    t.string   "point_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "points", ["establishment_id"], name: "index_points_on_establishment_id", using: :btree
+  add_index "points", ["user_id"], name: "index_points_on_user_id", using: :btree
+
   create_table "promotions", force: true do |t|
     t.string   "description"
     t.integer  "points"
@@ -75,8 +86,30 @@ ActiveRecord::Schema.define(version: 20131031210448) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "establishment_id"
+    t.integer  "share_points"
   end
 
   add_index "promotions", ["establishment_id"], name: "index_promotions_on_establishment_id", using: :btree
+
+  create_table "users", force: true do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "name"
+  end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end

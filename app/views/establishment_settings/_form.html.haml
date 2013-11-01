@@ -1,0 +1,17 @@
+= simple_form_for(@establishment, url: establishment_setting_path(@establishment.id), method: :put, html: { class: 'form-horizontal' }) do |f|
+  = f.error_notification
+  .inputs
+
+    = f.input :name
+    = f.input :phone, input_html: { class: 'span2' }
+    = f.input :address, input_html: { class: 'span6' }
+    = f.input :description, as: :text, input_html: { class: 'span6' }
+    = f.input :latitude, as: :string
+    = f.input :longitude, as: :string
+    .control-group
+      .controls= image_tag @establishment.logo(:thumb)
+    = f.input :logo
+
+  .form-actions
+    = link_to 'Cancelar', establishments_path, class: 'btn'
+    = f.button :submit, class: 'btn btn-success'

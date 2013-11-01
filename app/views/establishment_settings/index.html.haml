@@ -1,0 +1,27 @@
+.row-fluid
+  .span12
+    %h3.page-title
+      Estabelecimento
+    %ul.breadcrumb
+      %li
+        %i.icon-home
+        = link_to 'Dashboard', admin_index_path
+        %span.icon-angle-right
+      %li
+        = link_to "Estabelecimentos", establishments_path
+        %span.icon-angle-right
+      %li Configurações
+/ END PAGE HEADER
+/ BEGIN PAGE CONTENT
+.row-fluid
+  .span12
+    / BEGIN SAMPLE FORM widget
+    .widget
+      .widget-title
+        %h4
+          %i.icon-group
+          Configurações do estabelecimento
+        %span.tools
+          %a.icon-refresh{:href => "javascript:location.reload();;"}
+      .widget-body.form
+        = render 'form'

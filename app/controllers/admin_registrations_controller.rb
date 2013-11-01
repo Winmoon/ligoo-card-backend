@@ -1,3 +1,3 @@
-class AdRegistrationsController < Devise::RegistrationsController
+class AdRegistrationsController < Devise::OmniauthCallbacksController
   layout 'admin'
 end

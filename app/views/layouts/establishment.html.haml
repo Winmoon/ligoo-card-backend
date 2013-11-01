@@ -53,6 +53,12 @@
                 = link_to 'Cartão de Fidelidade', promotions_path
               %li
                 = link_to 'Novidades', news_index_path
+          %li
+            = link_to establishment_settings_path do
+              %i.icon-cogs
+              Configurações
+
+
       #body
         .container-fluid
           - flash.each do |key, msg|

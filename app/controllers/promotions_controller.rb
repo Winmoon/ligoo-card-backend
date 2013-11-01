@@ -55,6 +55,6 @@ class PromotionsController < EstablishmentController
     end
 
     def promotion_params
-      params.require(:promotion).permit(:description, :points, :valid_until)
+      params.require(:promotion).permit(:description, :points, :share_points, :valid_until)
     end
 end

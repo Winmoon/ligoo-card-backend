@@ -29,6 +29,7 @@ pt-BR:
         created_at: Cadastro
         description: Oferta
         points: Pontos
+        share_points: Pontos por compartilhamento
         valid_until: Validade
         errors:
           last_post: Você só pode cadastrar uma notícia por semana

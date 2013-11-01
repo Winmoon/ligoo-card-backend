@@ -1,0 +1,24 @@
+.row-fluid
+  .span12
+    %h3.page-title
+      Novidade
+    %ul.breadcrumb
+      %li
+        %i.icon-home
+        = link_to 'Dashboard', establishment_index_path
+        %span.icon-angle-right
+      %li
+        = link_to "Novidades", news_index_path
+        %span.icon-angle-right
+      %li Editar
+.row-fluid
+  .span12
+    .widget
+      .widget-title
+        %h4
+          %i.icon-gift
+          Editar novidade
+        %span.tools
+          %a.icon-refresh{:href => "javascript:location.reload();;"}
+      .widget-body.form
+        = render 'form'

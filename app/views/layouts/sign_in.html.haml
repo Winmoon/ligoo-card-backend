@@ -14,6 +14,7 @@
     #logo.center
       = image_tag 'logo.png', class: 'center', alt: "Ligoo Card"
     #login
+      = link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook)
       - flash.each do |key, msg|
         = msg
       = yield
@@ -23,6 +24,7 @@
     = javascript_include_tag "bootstrap/js/bootstrap.min.js", "data-turbolinks-track" => true
     = javascript_include_tag "js/jquery.blockui.js", "data-turbolinks-track" => true
     = javascript_include_tag "js/app.js", "data-turbolinks-track" => true
+    = javascript_include_tag "mobile", "data-turbolinks-track" => true
     :javascript
       jQuery(document).ready(function() {
         App.initLogin();
