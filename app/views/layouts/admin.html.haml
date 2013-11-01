@@ -7,8 +7,8 @@
     %meta{:content => "", :name => "description"}/
     %meta{:content => "", :name => "author"}/
     = stylesheet_link_tag    "//netdna.bootstrapcdn.com/font-awesome/3.0/css/font-awesome.min.css", media: "all"
-    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
-    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = stylesheet_link_tag    "application", media: "all"
+    = javascript_include_tag "application"
     = csrf_meta_tags
 
   %body.fixed-top
@@ -61,15 +61,15 @@
         %span.go-top
           %i.icon-arrow-up
 
-    = javascript_include_tag "js/jquery-1.8.3.min.js", "data-turbolinks-track" => true
-    = javascript_include_tag "bootstrap/js/bootstrap.min.js", "data-turbolinks-track" => true
-    = javascript_include_tag "js/jquery.blockui.js", "data-turbolinks-track" => true
+    = javascript_include_tag "js/jquery-1.8.3.min.js"
+    = javascript_include_tag "bootstrap/js/bootstrap.min.js"
+    = javascript_include_tag "js/jquery.blockui.js"
     /[if lt IE 9]
       <script src="/assets/js/excanvas.js"></script>
       <script src="/assets/js/respond.js"></script>
-    = javascript_include_tag "chosen-bootstrap/chosen/chosen.jquery.min.js", "data-turbolinks-track" => true
-    = javascript_include_tag "uniform/jquery.uniform.min.js", "data-turbolinks-track" => true
-    = javascript_include_tag "js/app.js", "data-turbolinks-track" => true
+    = javascript_include_tag "chosen-bootstrap/chosen/chosen.jquery.min.js"
+    = javascript_include_tag "uniform/jquery.uniform.min.js"
+    = javascript_include_tag "js/app.js"
 
     :javascript
       jQuery(document).ready(function() {

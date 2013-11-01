@@ -55,13 +55,14 @@ $ ->
       req.setRequestHeader "Authorization", make_base_auth("ligoocard", "uyP4RnNMGe4coOm6kIcfAt9E1S8AHK9wwHqPZO9xz7I")
     statusCode:
       401: ->
-        alert "Fazer login"
+        if confirm "Usuário não autenticado. Deseja fazer o Login?"
+          sign_in()
       400: (error) ->
         alert "Não passou na validação: "+ error.responseText
       422: (error) ->
         alert "Não passou na validação: "+ error.responseText
 
-  #sign_in()
+  #
   #sign_up()
   create_point()
   get_points()
