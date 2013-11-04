@@ -4,11 +4,16 @@ LigooCard::Application.routes.draw do
   scope :user do
     devise_for :users, :controllers => { sessions: "users/sessions" , registrations: "users/registrations", omniauth_callbacks: "users/omniauth_callbacks" }
     resources :points
+    resources :api do
+      get 'establishments', on: :collection
+      get 'near_establishments', on: :collection
+      get 'news', on: :collection
+    end
   end
 
   scope :admin do
     devise_for :admins, controllers: { sessions: "admins/sessions", passwords: "admins/passwords" , registrations: "admins/registrations" }
-    resources :establishments, except: [:show]
+    resources :admin_establishments, except: [:show]
   end
   resources :admin, only: :index
 

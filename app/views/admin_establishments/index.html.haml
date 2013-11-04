@@ -9,7 +9,7 @@
         %span.icon-angle-right
       %li
         Estabelecimentos
-= link_to 'Cadastrar Estabelecimento', new_establishment_path, class: 'btn btn-info'
+= link_to 'Cadastrar Estabelecimento', new_admin_establishment_path, class: 'btn btn-info'
 %br/
 %br/
 .row-fluid
@@ -41,8 +41,8 @@
                 %td= establishment.email
                 %td.actions
                   .btn-group
-                    = link_to edit_establishment_path(establishment), class: 'btn', title: 'Editar' do
+                    = link_to edit_admin_establishment_path(establishment), class: 'btn', title: 'Editar' do
                       %i.icon-edit
-                    = link_to establishment, :method => :delete, :data => { :confirm => t('dialog.confirm') }, class: 'btn', title: 'Excluír' do
+                    = link_to admin_establishment_path(establishment), :method => :delete, :data => { :confirm => t('dialog.confirm') }, class: 'btn', title: 'Excluír' do
                       %i.icon-remove
         = will_paginate @establishments, :renderer => BootstrapPaginationHelper::LinkRenderer

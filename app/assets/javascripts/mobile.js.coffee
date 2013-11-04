@@ -1,6 +1,7 @@
 #= require util/base64
 
-root_url = "http://ligoo-card.herokuapp.com/"
+#root_url = "http://ligoo-card.herokuapp.com/"
+root_url = "http://localhost:3000/"
 
 url = (url) ->
   root_url + url
@@ -42,6 +43,23 @@ get_points = ->
   $.get url("user/points.json"), (data) ->
     console.log data
 
+get_establishments = ->
+  $.get url("user/api/establishments.json"), (data) ->
+    console.log data
+
+get_near_establishments = ->
+  $.get url("user/api/near_establishments.json"),
+    latitude: -16.6896407
+    longitude: -49.2511995
+  , (data) ->
+    console.log data
+
+get_news = ->
+  $.get url("user/api/news.json"),
+    latitude: -16.6896407
+    longitude: -49.2511995
+  , (data) ->
+    console.log data
 
 
 $ ->
@@ -62,7 +80,8 @@ $ ->
       422: (error) ->
         alert "Não passou na validação: "+ error.responseText
 
-  #
   #sign_up()
-  create_point()
-  get_points()
+  #create_point()
+  #get_points()
+  #get_establishments()
+  get_near_establishments()

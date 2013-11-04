@@ -54,6 +54,7 @@ GEM
     execjs (2.0.2)
     faraday (0.8.8)
       multipart-post (~> 1.2.0)
+    geocoder (1.1.8)
     haml (4.0.3)
       tilt
     haml-rails (0.4)
@@ -174,6 +175,7 @@ DEPENDENCIES
   aws-sdk
   coffee-rails (~> 4.0.0)
   devise (~> 3.1.0)
+  geocoder
   haml
   haml-rails
   jbuilder (~> 1.2)

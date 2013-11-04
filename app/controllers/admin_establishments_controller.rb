@@ -1,4 +1,4 @@
-class EstablishmentsController < AdminController
+class AdminEstablishmentsController < AdminController
   before_action :set_establishment, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -20,7 +20,7 @@ class EstablishmentsController < AdminController
 
     respond_to do |format|
       if @establishment.save
-        format.html { redirect_to establishments_path, notice: t('messages.create.success') }
+        format.html { redirect_to admin_establishments_path, notice: t('messages.create.success') }
         format.json { render action: 'show', status: :created, location: @establishment }
       else
         format.html { render action: 'new' }
@@ -32,7 +32,7 @@ class EstablishmentsController < AdminController
   def update
     respond_to do |format|
       if @establishment.update(establishment_params)
-        format.html { redirect_to establishments_path, notice: t('messages.update.success') }
+        format.html { redirect_to admin_establishments_path, notice: t('messages.update.success') }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -44,7 +44,7 @@ class EstablishmentsController < AdminController
   def destroy
     @establishment.destroy
     respond_to do |format|
-      format.html { redirect_to establishments_url }
+      format.html { redirect_to admin_establishments_url }
       format.json { head :no_content }
     end
   end

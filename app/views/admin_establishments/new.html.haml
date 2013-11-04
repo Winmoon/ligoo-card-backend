@@ -8,9 +8,9 @@
         = link_to 'Dashboard', admin_index_path
         %span.icon-angle-right
       %li
-        = link_to "Estabelecimentos", establishments_path
+        = link_to "Estabelecimentos", admin_establishments_path
         %span.icon-angle-right
-      %li Editar
+      %li Cadastrar
 / END PAGE HEADER
 / BEGIN PAGE CONTENT
 .row-fluid
@@ -20,8 +20,9 @@
       .widget-title
         %h4
           %i.icon-group
-          Editar estabelecimento
+          Cadastrar Estabelecimento
         %span.tools
           %a.icon-refresh{:href => "javascript:location.reload();;"}
       .widget-body.form
         = render 'form'
+
