@@ -8,6 +8,7 @@ LigooCard::Application.routes.draw do
       get 'establishments', on: :collection
       get 'near_establishments', on: :collection
       get 'news', on: :collection
+      get 'establishment', on: :member
     end
   end
 

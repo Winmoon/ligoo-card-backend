@@ -1,5 +1,5 @@
 class ApiController < UserController
-  before_action :set_establishment, only: [:show, :edit, :update, :destroy]
+  before_action :set_establishment, only: [:establishment]
 
 
   def establishments
@@ -11,7 +11,11 @@ class ApiController < UserController
   end
 
   def news
-    @news = News.order('created_at desc').paginate(:page => params[:page], :per_page => 1)
+    @news = News.order('created_at desc').paginate(:page => params[:page], :per_page => 10)
+  end
+
+  def establishment
+
   end
 
   private

@@ -55,10 +55,11 @@ get_near_establishments = ->
     console.log data
 
 get_news = ->
-  $.get url("user/api/news.json"),
-    latitude: -16.6896407
-    longitude: -49.2511995
-  , (data) ->
+  $.get url("user/api/news.json"), (data) ->
+    console.log data
+
+get_establishment = (establishment) ->
+  $.get url("user/api/"+establishment+"/establishment.json"), (data) ->
     console.log data
 
 
@@ -84,4 +85,5 @@ $ ->
   #create_point()
   #get_points()
   #get_establishments()
-  get_near_establishments()
+  #get_near_establishments()
+  get_establishment(4)
