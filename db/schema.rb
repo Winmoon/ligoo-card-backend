@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131105132031) do
+ActiveRecord::Schema.define(version: 20131105172939) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -30,6 +30,16 @@ ActiveRecord::Schema.define(version: 20131105132031) do
 
   add_index "admins", ["email"], name: "index_admins_on_email", unique: true, using: :btree
   add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
+
+  create_table "coupons", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "promotion_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "coupons", ["promotion_id"], name: "index_coupons_on_promotion_id", using: :btree
+  add_index "coupons", ["user_id"], name: "index_coupons_on_user_id", using: :btree
 
   create_table "establishments", force: true do |t|
     t.string   "name"
@@ -55,6 +65,10 @@ ActiveRecord::Schema.define(version: 20131105132031) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.integer  "likes_count",                                                  default: 0,  null: false
+    t.string   "cover_file_name"
+    t.string   "cover_content_type"
+    t.integer  "cover_file_size"
+    t.datetime "cover_updated_at"
   end
 
   add_index "establishments", ["email"], name: "index_establishments_on_email", unique: true, using: :btree
@@ -85,8 +99,10 @@ ActiveRecord::Schema.define(version: 20131105132031) do
     t.string   "point_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "coupon_id"
   end
 
+  add_index "points", ["coupon_id"], name: "index_points_on_coupon_id", using: :btree
   add_index "points", ["establishment_id"], name: "index_points_on_establishment_id", using: :btree
   add_index "points", ["user_id"], name: "index_points_on_user_id", using: :btree
 

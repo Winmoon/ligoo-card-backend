@@ -55,6 +55,6 @@ class AdminEstablishmentsController < AdminController
     end
 
     def establishment_params
-      params.require(:establishment).permit(:name, :address, :description, :phone, :latitude, :longitude, :logo, :email, :password, :password_confirmation)
+      params.require(:establishment).permit(:name, :address, :description, :phone, :latitude, :longitude, :logo, :cover, :email, :password, :password_confirmation)
     end
 end

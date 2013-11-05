@@ -6,7 +6,6 @@ class UserController < ApplicationController
   after_filter :cors_set_access_control_headers
   before_filter :authenticate_user!
   skip_before_filter :verify_authenticity_token, if: Proc.new { |c| c.request.format == 'application/json' }
-  #http_basic_authenticate_with name: 'ligoocard', password: 'uyP4RnNMGe4coOm6kIcfAt9E1S8AHK9wwHqPZO9xz7I', if: Proc.new { |c| c.request.format == 'application/json' }
 
 
   # For all responses in this controller, return the CORS access control headers.

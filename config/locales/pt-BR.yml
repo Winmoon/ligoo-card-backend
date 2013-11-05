@@ -33,6 +33,7 @@ pt-BR:
         valid_until: Validade
         errors:
           last_post: Você só pode cadastrar uma notícia por semana
+          insufficient_points: "Quantidade de pontos insuficientes"
       news:
         created_at: Cadastro
         news: Notícia

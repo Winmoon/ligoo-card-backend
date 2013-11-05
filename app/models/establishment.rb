@@ -5,6 +5,7 @@ class Establishment < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_attached_file :logo, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
+  has_attached_file :cover, :default_url => "/images/:style/missing.png"
 
   geocoded_by :address, :latitude  => :latitude, :longitude => :longitude
 
@@ -15,7 +16,7 @@ class Establishment < ActiveRecord::Base
 
   validates :name, :address, :phone, presence: true, length: { maximum: 255 }
   validates :latitude, :longitude, presence: true
-  validates :logo, :attachment_presence => true
+  validates :logo, :cover, :attachment_presence => true
   validates :description, length: { maximum: 420 }
 
   def logo_urls

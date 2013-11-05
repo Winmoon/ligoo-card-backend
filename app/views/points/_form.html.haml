@@ -1,9 +1,0 @@
-= simple_form_for(@news, html: { class: 'form-horizontal' }) do |f|
-  = f.error_notification
-  .inputs
-
-    = f.input :news, as: :text, input_html: { class: 'input-xxlarge popovers', data: { content: "Descreva sua notícia utilizando até 150 caracteres", "original-title" => "Atenção!", trigger: "hover" } }
-
-  .form-actions
-    = link_to 'Cancelar', news_index_path, class: 'btn'
-    = f.button :submit, class: 'btn btn-success'

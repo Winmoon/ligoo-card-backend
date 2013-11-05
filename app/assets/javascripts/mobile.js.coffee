@@ -31,16 +31,14 @@ sign_up = ->
   , (data) ->
     console.log data
 
-create_point = ->
-  $.post url("user/points.json"),
-    point:
-      establishment_id: '4'
-      point_type: "qrcode"
+create_point = (establishment) ->
+  $.get url("user/api/"+establishment+"/point.json"),
+    point_type: "qrcode"
   , (data) ->
     console.log data
 
 get_points = ->
-  $.get url("user/points.json"), (data) ->
+  $.get url("user/api/points.json"), (data) ->
     console.log data
 
 get_establishments = ->
@@ -62,6 +60,14 @@ get_establishment = (establishment) ->
   $.get url("user/api/"+establishment+"/establishment.json"), (data) ->
     console.log data
 
+create_coupon = (promotion) ->
+  $.get url("user/api/"+promotion+"/coupon.json"), (data) ->
+    console.log data
+
+get_coupons = ->
+  $.get url("user/api/coupons.json"), (data) ->
+    console.log data
+
 like_establishment = (establishment) ->
   $.get url("user/api/"+establishment+"/like.json"), (data) ->
     console.log data
@@ -73,8 +79,6 @@ $ ->
     crossDomain: true
     xhrFields:
       withCredentials: true
-    beforeSend: (req) ->
-      req.setRequestHeader "Authorization", make_base_auth("ligoocard", "uyP4RnNMGe4coOm6kIcfAt9E1S8AHK9wwHqPZO9xz7I")
     statusCode:
       401: ->
         if confirm "Usuário não autenticado. Deseja fazer o Login?"
@@ -85,9 +89,11 @@ $ ->
         alert "Não passou na validação: "+ error.responseText
 
   #sign_up()
-  #create_point()
-  #get_points()
-  get_establishments()
+#  create_point(4)
+#  get_points()
+  #get_establishments()
   #get_near_establishments()
   #get_establishment(4)
-  like_establishment(4)
+  #like_establishment(4)
+#  create_coupon(1)
+#  get_coupons()

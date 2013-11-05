@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   has_many :points
   has_many :establishments, through: :points
   has_many :likes
+  has_many :coupons
 
 
 

@@ -8,8 +8,16 @@
     = f.input :description, as: :text, input_html: { class: 'span6' }
     = f.input :latitude, as: :string
     = f.input :longitude, as: :string
-    = f.input :logo
-    - if @establishment.new_record?
+    - if @establishment.persisted?
+      .control-group
+        .controls= image_tag @establishment.logo(:thumb)
+      = f.input :logo
+      .control-group
+        .controls= image_tag @establishment.cover
+      = f.input :cover
+    - else
+      = f.input :logo
+      = f.input :cover
       = f.input :email, required: true
       = f.input :password, required: true
       = f.input :password_confirmation, required: true

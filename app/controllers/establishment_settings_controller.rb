@@ -24,6 +24,6 @@ class EstablishmentSettingsController < EstablishmentController
     end
 
     def establishment_params
-      params.require(:establishment).permit(:name, :address, :description, :phone, :latitude, :longitude, :logo)
+      params.require(:establishment).permit(:name, :address, :description, :phone, :latitude, :longitude, :logo, :cover)
     end
 end

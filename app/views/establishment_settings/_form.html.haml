@@ -11,6 +11,9 @@
     .control-group
       .controls= image_tag @establishment.logo(:thumb)
     = f.input :logo
+    .control-group
+      .controls= image_tag @establishment.cover
+    = f.input :cover
 
   .form-actions
     = f.button :submit, class: 'btn btn-success'

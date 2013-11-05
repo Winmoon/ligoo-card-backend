@@ -10,6 +10,10 @@ LigooCard::Application.routes.draw do
       get 'news', on: :collection
       get 'establishment', on: :member
       get 'like', on: :member
+      get 'coupon', on: :member
+      get 'coupons', on: :collection
+      get 'point', on: :member
+      get 'points', on: :collection
     end
   end
 
