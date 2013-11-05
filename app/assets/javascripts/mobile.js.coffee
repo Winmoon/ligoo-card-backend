@@ -77,8 +77,6 @@ $ ->
   $.ajaxSetup
     dataType: "json"
     crossDomain: true
-    xhrFields:
-      withCredentials: true
     statusCode:
       401: ->
         if confirm "Usuário não autenticado. Deseja fazer o Login?"
@@ -88,12 +86,12 @@ $ ->
       422: (error) ->
         alert "Não passou na validação: "+ error.responseText
 
-  sign_up()
+#  sign_up()
+  get_establishments()
+#  get_near_establishments()
 #  create_point(4)
 #  get_points()
-  #get_establishments()
-  #get_near_establishments()
-  #get_establishment(4)
-  #like_establishment(4)
+#  get_establishment(4)
+#  like_establishment(4)
 #  create_coupon(1)
 #  get_coupons()
