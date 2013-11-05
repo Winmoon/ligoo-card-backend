@@ -1,7 +1,7 @@
 #= require util/base64
 
-root_url = "http://ligoo-card.herokuapp.com/"
-#root_url = "http://localhost:3000/"
+#root_url = "http://ligoo-card.herokuapp.com/"
+root_url = "http://localhost:3000/"
 
 url = (url) ->
   root_url + url
@@ -87,10 +87,11 @@ $ ->
         alert "Não passou na validação: "+ error.responseText
 
 #  sign_up()
-  get_establishments()
+#  get_establishments()
 #  get_near_establishments()
 #  create_point(4)
 #  get_points()
+  get_news()
 #  get_establishment(4)
 #  like_establishment(4)
 #  create_coupon(1)
