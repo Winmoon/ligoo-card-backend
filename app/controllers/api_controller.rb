@@ -1,5 +1,5 @@
 class ApiController < UserController
-  before_action :set_establishment, only: [:establishment]
+  before_action :set_establishment, only: [:establishment, :like]
 
 
   def establishments
@@ -16,6 +16,20 @@ class ApiController < UserController
 
   def establishment
 
+  end
+
+  def like
+    puts 'sdfasdfsdfasdfsdfasdfsdfasdfsdfasdfsdfasdfsdfasdfsdfasdfsdfasdfsdfasdfsdfasdfsdfasdfsdfasdfsdfasdfsdfasdfsdfasdfsdfasdfsdfasdfsdfasdfsdfasdfsdfasdfsdfasdfsdfasdfsdfasdfsdfasdfsdfasdfsdfasdfsdfasdfsdfasdfsdfasdfsdfasdfsdfasdfsdfasdf'
+    puts @establishment
+    @like = current_user.likes.new({ establishment_id: @establishment.id })
+
+    respond_to do |format|
+      if @like.save
+        format.json { render action: 'like', status: :created }
+      else
+        format.json { render json: @like.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   private

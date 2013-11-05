@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131104170549) do
+ActiveRecord::Schema.define(version: 20131105132031) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -54,10 +54,21 @@ ActiveRecord::Schema.define(version: 20131104170549) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.integer  "likes_count",                                                  default: 0,  null: false
   end
 
   add_index "establishments", ["email"], name: "index_establishments_on_email", unique: true, using: :btree
   add_index "establishments", ["reset_password_token"], name: "index_establishments_on_reset_password_token", unique: true, using: :btree
+
+  create_table "likes", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "establishment_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "likes", ["establishment_id"], name: "index_likes_on_establishment_id", using: :btree
+  add_index "likes", ["user_id"], name: "index_likes_on_user_id", using: :btree
 
   create_table "news", force: true do |t|
     t.string   "news",             limit: 150

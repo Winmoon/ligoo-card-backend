@@ -62,6 +62,9 @@ get_establishment = (establishment) ->
   $.get url("user/api/"+establishment+"/establishment.json"), (data) ->
     console.log data
 
+like_establishment = (establishment) ->
+  $.get url("user/api/"+establishment+"/like.json"), (data) ->
+    console.log data
 
 $ ->
 
@@ -84,6 +87,7 @@ $ ->
   #sign_up()
   #create_point()
   #get_points()
-  #get_establishments()
+  get_establishments()
   #get_near_establishments()
-  get_establishment(4)
+  #get_establishment(4)
+  like_establishment(4)

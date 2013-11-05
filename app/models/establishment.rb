@@ -11,6 +11,7 @@ class Establishment < ActiveRecord::Base
   has_many :promotions
 
   has_many :news
+  has_many :likes
 
   validates :name, :address, :phone, presence: true, length: { maximum: 255 }
   validates :latitude, :longitude, presence: true
