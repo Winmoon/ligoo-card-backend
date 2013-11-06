@@ -7,12 +7,12 @@ class EstablishmentSettingsController < EstablishmentController
 
   def update
     respond_to do |format|
-      if @establishment.update(establishment_params)
-        format.html { redirect_to establishment_settings_path, notice: t('messages.update.success') }
+      if current_user.update(user_params)
+        format.html { redirect_to user_settings_path, notice: t('messages.update.success') }
         format.json { head :no_content }
       else
-        format.html { render action: 'index' }
-        format.json { render json: @establishment.errors, status: :unprocessable_entity }
+        format.html { render action: 'settings' }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -24,6 +24,6 @@ class EstablishmentSettingsController < EstablishmentController
     end
 
     def establishment_params
-      params.require(:establishment).permit(:name, :address, :description, :phone, :latitude, :longitude, :logo, :cover)
+      params.require(:user).permit(:name, :birth_date, :gender)
     end
 end

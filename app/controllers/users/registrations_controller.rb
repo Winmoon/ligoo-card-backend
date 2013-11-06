@@ -4,6 +4,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   before_filter :authenticate_user!
 
   def sign_up_params
-    params.require(:user).permit(:email, :password, :password_confirmation, :name, :provider, :uid)
+    params.require(:user).permit(:email, :password, :password_confirmation, :name, :provider, :uid, :birth_date, :gender)
   end
 end

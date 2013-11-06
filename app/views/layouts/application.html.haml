@@ -60,7 +60,7 @@
         / END RESPONSIVE QUICK SEARCH FORM
         / BEGIN SIDEBAR MENU
         %ul
-          %li.active
+          %li
             %a{:href => "index.html"}
               %i.icon-home
               Dashboard
@@ -122,6 +122,7 @@
     %script{:src => "assets/chosen-bootstrap/chosen/chosen.jquery.min.js", :type => "text/javascript"}
     %script{:src => "assets/uniform/jquery.uniform.min.js", :type => "text/javascript"}
     %script{:src => "assets/js/app.js"}
+    = javascript_include_tag "default"
     :javascript
       jQuery(document).ready(function() {
          // initiate layout and plugins

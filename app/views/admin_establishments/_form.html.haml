@@ -11,12 +11,12 @@
     - if @establishment.persisted?
       .control-group
         .controls= image_tag @establishment.logo(:thumb)
-      = f.input :logo, input_html: { class: 'popovers', data: { content: "Tamanho 640x426px. Formato preferido: JPEG.", "original-title" => "Logo do aplicativo", trigger: "hover" } }
+      = f.input :logo, input_html: { class: 'popovers', data: { content: "Tamanho 128x128px. Formato preferido: JPEG.", "original-title" => "Logo do aplicativo", trigger: "hover" } }
       .control-group
         .controls= image_tag @establishment.cover, style: "width: 160px; height: 106px"
       = f.input :cover, input_html: { class: 'popovers', data: { content: "Tamanho 640x426px. Formato preferido: JPEG.", "original-title" => "Capa do aplicativo", trigger: "hover" } }
     - else
-      = f.input :logo, input_html: { class: 'popovers', data: { content: "Tamanho 640x426px. Formato preferido: JPEG.", "original-title" => "Logo do aplicativo", trigger: "hover" } }
+      = f.input :logo, input_html: { class: 'popovers', data: { content: "Tamanho 128x128px. Formato preferido: JPEG.", "original-title" => "Logo do aplicativo", trigger: "hover" } }
       = f.input :cover, input_html: { class: 'popovers', data: { content: "Tamanho 640x426px. Formato preferido: JPEG.", "original-title" => "Capa do aplicativo", trigger: "hover" } }
       = f.input :email, required: true
       = f.input :password, required: true

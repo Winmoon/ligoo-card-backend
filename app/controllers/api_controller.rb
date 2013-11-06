@@ -53,16 +53,35 @@ class ApiController < UserController
 
     respond_to do |format|
       if @point.save
-        format.html { redirect_to points_index_path, notice: t('messages.create.success') }
-        format.json { render action: 'point', status: :created, location: @point }
+        format.json { render action: 'point', status: :created }
       else
         format.json { render json: @point.errors, status: :unprocessable_entity }
       end
     end
   end
 
+  def profile
+    @user = current_user
+  end
+
+  def update_profile
+    @user = current_user
+    respond_to do |format|
+      if @user.update(user_params)
+        format.json { render action: 'profile', status: :created }
+      else
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+
   private
     def set_establishment
       @establishment = current_user.establishments.find(params[:id])
+    end
+
+    def user_params
+      params.require(:user).permit(:name, :birth_date, :gender)
     end
 end

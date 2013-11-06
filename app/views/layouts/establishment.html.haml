@@ -43,16 +43,24 @@
       #sidebar.nav-collapse.collapse
         .sidebar-toggler.hidden-phone
         %ul
-          %li.has-sub.active
+          %li
+            = link_to establishment_index_path do
+              %i.icon-dashboard
+              Dashboard
+          %li
+            = link_to qrcode_index_path do
+              %i.icon-qrcode
+              QR Code
+          %li.has-sub#promotions_menu
             %a{:href => "javascript:;"}
               %i.icon-gift
               Promoções
               %span.arrow
             %ul.sub
-              %li.active
-                = link_to 'Cartão de Fidelidade', promotions_path
               %li
-                = link_to 'Novidades', news_index_path
+                = link_to 'Cartão de Fidelidade', promotions_path, data: { parent: '#promotions_menu' }
+              %li
+                = link_to 'Novidades', news_index_path, data: { parent: '#promotions_menu' }
           %li
             = link_to establishment_settings_path do
               %i.icon-cogs
@@ -82,6 +90,7 @@
     = javascript_include_tag "chosen-bootstrap/chosen/chosen.jquery.min.js"
     = javascript_include_tag "uniform/jquery.uniform.min.js"
     = javascript_include_tag "js/app.js"
+    = javascript_include_tag "default"
 
     :javascript
       jQuery(document).ready(function() {

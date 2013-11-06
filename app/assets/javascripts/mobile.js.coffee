@@ -24,10 +24,12 @@ sign_in = ->
 sign_up = ->
   $.post url("user/users.json"),
     user:
-      name: 'Usuario Teste'
-      email: "admin@winmoon.com"
+      name: 'Usuario Teste 2'
+      email: "admin3@winmoon.com"
       password: "123321321"
       password_confirmation: "123321321"
+      gender: "M"
+      birth_date: "23/10/1986"
       remember_me: 1
   , (data) ->
     console.log data
@@ -71,6 +73,22 @@ get_coupons = ->
 
 like_establishment = (establishment) ->
   $.get url("user/api/"+establishment+"/like.json"), (data) ->
+    console.log data
+
+get_profile = ->
+  $.get url("user/api/profile.json"),
+    latitude: -16.6896407
+    longitude: -49.2511995
+  , (data) ->
+    console.log data
+
+update_profile = ->
+  $.post url("user/api/update_profile.json"),
+    user:
+      name: "Usuário com nome atualizado"
+      birth_date: '23/11/2013'
+      gender: 'M'
+  , (data) ->
     console.log data
 
 $ ->
@@ -121,5 +139,8 @@ $ ->
 #  like_establishment(4)
 #  create_coupon(1)
 #  get_coupons()
+  get_profile()
+  update_profile()
+  get_profile()
 
 

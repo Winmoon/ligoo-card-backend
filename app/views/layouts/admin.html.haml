@@ -43,7 +43,7 @@
       #sidebar.nav-collapse.collapse
         .sidebar-toggler.hidden-phone
         %ul
-          %li.active
+          %li
             = link_to admin_establishments_path do
               %i.icon-group
               Estabelecimentos
@@ -70,6 +70,7 @@
     = javascript_include_tag "chosen-bootstrap/chosen/chosen.jquery.min.js"
     = javascript_include_tag "uniform/jquery.uniform.min.js"
     = javascript_include_tag "js/app.js"
+    = javascript_include_tag "default"
 
     :javascript
       jQuery(document).ready(function() {

@@ -3,7 +3,6 @@ LigooCard::Application.routes.draw do
 
   scope :user do
     devise_for :users, :controllers => { sessions: "users/sessions" , registrations: "users/registrations", omniauth_callbacks: "users/omniauth_callbacks" }
-    resources :points
     resources :api do
       get 'establishments', on: :collection
       get 'near_establishments', on: :collection
@@ -14,6 +13,8 @@ LigooCard::Application.routes.draw do
       get 'coupons', on: :collection
       get 'point', on: :member
       get 'points', on: :collection
+      get 'profile', on: :collection
+      post 'update_profile', on: :collection
     end
   end
 
@@ -28,6 +29,7 @@ LigooCard::Application.routes.draw do
     resources :promotions
     resources :news
     resources :establishment_settings, only: [:index, :update]
+    resources :qrcode, only: [:index, :show]
   end
   resources :establishment, only: :index
 

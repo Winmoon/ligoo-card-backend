@@ -1,0 +1,47 @@
+.row-fluid
+  .span12
+    %h3.page-title
+      QR Code
+    %ul.breadcrumb
+      %li
+        %i.icon-home
+        = link_to 'Dashboard', establishment_index_path
+        %span.icon-angle-right
+      %li
+        Impressão dos QR Codes
+.row-fluid
+  .span12
+    .widget
+      .widget-title
+        %h4
+          %i.icon-qrcode
+          150 x 150 pixels
+        %span.tools
+          = link_to qrcode_path("150x150"), target: '_blank', title: 'Imprimir QR Code' do
+            %i.icon-print
+      .widget-body
+        = image_tag "https://chart.googleapis.com/chart?chs=150x150&cht=qr&choe=UTF-8&chl=#{current_establishment.id}"
+.row-fluid
+  .span12
+    .widget
+      .widget-title
+        %h4
+          %i.icon-qrcode
+          300 x 300 pixels
+        %span.tools
+          = link_to qrcode_path("300x300"), target: '_blank', title: 'Imprimir QR Code' do
+            %i.icon-print
+      .widget-body
+        = image_tag "https://chart.googleapis.com/chart?chs=300x300&cht=qr&choe=UTF-8&chl=#{current_establishment.id}"
+.row-fluid
+  .span12
+    .widget
+      .widget-title
+        %h4
+          %i.icon-qrcode
+          500 x 500 pixels
+        %span.tools
+          = link_to qrcode_path("500x500"), target: '_blank', title: 'Imprimir QR Code' do
+            %i.icon-print
+      .widget-body
+        = image_tag "https://chart.googleapis.com/chart?chs=500x500&cht=qr&choe=UTF-8&chl=#{current_establishment.id}"
