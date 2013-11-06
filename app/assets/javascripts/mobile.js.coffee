@@ -1,7 +1,7 @@
 #= require util/base64
 
-#root_url = "http://ligoo-card.herokuapp.com/"
-root_url = "http://localhost:3000/"
+root_url = "http://ligoo-card.herokuapp.com/"
+#root_url = "http://localhost:3000/"
 
 url = (url) ->
   root_url + url
@@ -77,6 +77,9 @@ $ ->
   $.ajaxSetup
     dataType: "json"
     crossDomain: true
+    xhrFields: {
+      withCredentials: true
+    }
     statusCode:
       401: ->
         if confirm "Usuário não autenticado. Deseja fazer o Login?"
@@ -86,6 +89,7 @@ $ ->
       422: (error) ->
         alert "Não passou na validação: "+ error.responseText
 
+#  sign_in()
 #  sign_up()
 #  get_establishments()
 #  get_near_establishments()
