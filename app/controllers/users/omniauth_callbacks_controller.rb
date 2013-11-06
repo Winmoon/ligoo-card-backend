@@ -1,10 +1,7 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
-  include CorsHelper
 
   skip_before_filter :verify_authenticity_token, if: Proc.new { |c| c.request.format == 'application/json' }
   before_filter :authenticate_user!
-  before_filter :cors_preflight_check
-  after_filter :cors_set_access_control_headers
 
   def facebook
     # You need to implement the method below in your model (e.g. app/models/user.rb)
