@@ -1,7 +1,7 @@
 #= require util/base64
 
-root_url = "http://ligoo-card.herokuapp.com/"
-#root_url = "http://localhost:3000/"
+#root_url = "http://ligoo-card.herokuapp.com/"
+root_url = "http://localhost:3000/"
 
 url = (url) ->
   root_url + url
@@ -10,6 +10,7 @@ make_base_auth = (user, password) ->
   tok = user + ":" + password
   hash = $.base64.encode(tok)
   "Basic " + hash
+
 
 sign_in = ->
   $.post url("user/users/sign_in.json"),
@@ -89,6 +90,26 @@ $ ->
       422: (error) ->
         alert "Não passou na validação: "+ error.responseText
 
+  $("#facebook_sign_in").click (e) ->
+    e.preventDefault()
+    FB.login ((response) ->
+      if response.authResponse
+        console.log response.authResponse
+        console.log "Connected! Hitting OmniAuth callback (GET users/auth/facebook/callback)..."
+        $.getJSON url("users/auth/facebook/callback")+"?"+$.param({ signed_request: response.authResponse.signedRequest }),
+          dataType: "json"
+          crossDomain: true
+          xhrFields: {
+            withCredentials: true
+          }
+        , (json) ->
+          console.log JSON.stringify(json)
+
+    ),
+      # Do some other stuff here (call more json, load in more elements, etc)
+      scope: "email,read_stream" # These are the permissions you are requesting
+
+
 #  sign_in()
 #  sign_up()
 #  get_establishments()
@@ -100,3 +121,5 @@ $ ->
 #  like_establishment(4)
 #  create_coupon(1)
 #  get_coupons()
+
+
