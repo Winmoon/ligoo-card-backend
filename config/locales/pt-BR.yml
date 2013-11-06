@@ -25,6 +25,7 @@ pt-BR:
         longitude: Longitude
         ll: LL
         logo: "Logo"
+        cover: Capa
       promotion:
         created_at: Cadastro
         description: Oferta
