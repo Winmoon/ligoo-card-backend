@@ -134,13 +134,13 @@ $ ->
 #  get_near_establishments()
 #  create_point(4)
 #  get_points()
-  get_news()
+#  get_news()
 #  get_establishment(4)
 #  like_establishment(4)
 #  create_coupon(1)
 #  get_coupons()
-  get_profile()
-  update_profile()
-  get_profile()
+#  get_profile()
+#  update_profile()
+#  get_profile()
 
 

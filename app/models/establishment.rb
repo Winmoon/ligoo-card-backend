@@ -10,9 +10,9 @@ class Establishment < ActiveRecord::Base
   geocoded_by :address, :latitude  => :latitude, :longitude => :longitude
 
   has_many :promotions
-
   has_many :news
   has_many :likes
+  has_many :coupons, through: :promotions
 
   validates :name, :address, :phone, presence: true, length: { maximum: 255 }
   validates :latitude, :longitude, presence: true

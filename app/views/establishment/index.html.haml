@@ -1,1 +1,30 @@
-%h1 Relatórios
+= javascript_include_tag "establishment"
+.row-fluid
+  .span12
+    %h3.page-title
+      Dashboard
+    %ul.breadcrumb
+      %li
+        %i.icon-home
+        = link_to 'Dashboard', establishment_index_path
+
+.row-fluid
+  .span12
+    .widget
+      .widget-title
+        %h4
+          %i.icon-gift
+          Validação de cupons
+        %span.tools
+          %a.icon-refresh{:href => "javascript:location.reload();"}
+      .widget-body
+        .validate_coupon
+          .form-horizontal
+            .control-group
+              %label.control-label Buscar cupom:
+              .controls
+                .input-append
+                  = text_field_tag :coupon
+                  %button.btn
+                    %i.icon-search
+          #coupon_info

@@ -31,6 +31,6 @@ LigooCard::Application.routes.draw do
     resources :establishment_settings, only: [:index, :update]
     resources :qrcode, only: [:index, :show]
   end
-  resources :establishment, only: :index
+  resources :establishment, only: [:index, :show]
 
 end
