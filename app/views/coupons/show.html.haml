@@ -1,0 +1,37 @@
+.form-horizontal
+
+  - if @coupon
+    = javascript_include_tag "coupon"
+    .control-group
+      %label.control-label Cupom:
+      .controls
+        %strong
+          #{@coupon.id} - #{@coupon.promotion.description} (#{@coupon.promotion.points} pontos)
+        %br
+        %span
+          Criado em #{l(@coupon.created_at, format: :default)}
+    .control-group
+      %label.control-label Cliente:
+      .controls
+        = @coupon.user.name
+        %br
+        = @coupon.user.email
+        %br
+        Nascimento #{l(@coupon.user.birth_date, format: :default)}
+    .control-group
+      %label.control-label
+      .controls
+        - if @coupon.checked?
+          .alert.alert-error
+            %i.icon-check
+            Cupon validado em #{l(@coupon.updated_at, format: :default)}
+        - else
+          %button.check_coupon{ data: { id: @coupon.id } }
+            %i.icon-check
+            Validar cupon
+
+  - else
+    .control-group
+      %label.control-label
+      .controls
+        .alert.alert-danger Cupom não encontrado

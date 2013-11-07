@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131106175458) do
+ActiveRecord::Schema.define(version: 20131107175608) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20131106175458) do
     t.integer  "promotion_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "checked"
   end
 
   add_index "coupons", ["promotion_id"], name: "index_coupons_on_promotion_id", using: :btree

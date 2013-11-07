@@ -17,4 +17,8 @@ class Coupon < ActiveRecord::Base
     end
     false
   end
+
+  def check
+    self.update_attribute :checked, true
+  end
 end

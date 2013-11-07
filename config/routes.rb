@@ -26,6 +26,9 @@ LigooCard::Application.routes.draw do
 
   scope :establishment do
     devise_for :establishments, controllers: { sessions: "establishments/sessions", passwords: "establishments/passwords" , registrations: "establishments/registrations" }
+    resources :coupons do
+      get 'check', on: :member
+    end
     resources :promotions
     resources :news
     resources :establishment_settings, only: [:index, :update]
