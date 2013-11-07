@@ -26,6 +26,7 @@ pt-BR:
         ll: LL
         logo: "Logo"
         cover: Capa
+        daily_point_limit: Limite diário de pontos
       promotion:
         created_at: Cadastro
         description: Oferta
@@ -33,11 +34,15 @@ pt-BR:
         share_points: Pontos por compartilhamento
         valid_until: Validade
         errors:
-          last_post: Você só pode cadastrar uma notícia por semana
           insufficient_points: "Quantidade de pontos insuficientes"
       news:
         created_at: Cadastro
         news: Notícia
+        errors:
+          last_post: Você só pode cadastrar uma notícia por semana
+      point:
+        errors:
+          daily_limit: Você só pode ganhar um ponto por dia neste estabelecimento
   dialog:
     confirm: Você tem certeza disso?
   helpers:

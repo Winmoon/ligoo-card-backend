@@ -8,6 +8,7 @@
     = f.input :description, as: :text, input_html: { class: 'span6' }
     = f.input :latitude, as: :string
     = f.input :longitude, as: :string
+    = f.input :daily_point_limit, hint: "Habilitando esta opção, o cliente só poderá ganhar um ponto por dia"
     - if @establishment.persisted?
       .control-group
         .controls= image_tag @establishment.logo(:thumb)

@@ -19,6 +19,16 @@ class Establishment < ActiveRecord::Base
   validates :logo, :cover, :attachment_presence => true
   validates :description, length: { maximum: 420 }
 
+  def latitude=(latitude)
+    write_attribute(:latitude, latitude.gsub(',', '.'))
+  end
+
+  def longitude=(longitude)
+    write_attribute(:longitude, longitude.gsub(',', '.'))
+  end
+
+
+
   def logo_urls
     { :original => logo, :medium => logo(:medium), :thumb => logo(:thumb) }
   end
