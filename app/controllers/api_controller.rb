@@ -78,7 +78,7 @@ class ApiController < UserController
 
   private
     def set_establishment
-      @establishment = current_user.establishments.find(params[:id])
+      @establishment = Establishment.find(params[:id])
     end
 
     def user_params
