@@ -10,6 +10,7 @@ GEM
       erubis (~> 2.7.0)
       rack (~> 1.5.2)
       rack-test (~> 0.6.2)
+    active_median (0.0.1)
     activemodel (4.0.0)
       activesupport (= 4.0.0)
       builder (~> 3.1.0)
@@ -35,6 +36,7 @@ GEM
       uuidtools (~> 2.1)
     bcrypt-ruby (3.1.2)
     builder (3.1.4)
+    chartkick (1.2.0)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.3)
@@ -59,6 +61,8 @@ GEM
     faraday (0.8.8)
       multipart-post (~> 1.2.0)
     geocoder (1.1.8)
+    groupdate (1.0.4)
+      activerecord (>= 3.0.0)
     haml (4.0.4)
       tilt
     haml-rails (0.4)
@@ -178,11 +182,14 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_median (~> 0.0.1)
   aws-sdk
+  chartkick (~> 1.2.0)
   coffee-rails (~> 4.0.0)
   counter_culture (~> 0.1.18)
   devise (~> 3.1.0)
   geocoder
+  groupdate (~> 1.0.4)
   haml
   haml-rails
   jbuilder (~> 1.2)

@@ -1,4 +1,18 @@
+= javascript_include_tag "http://code.highcharts.com/highcharts.js", "chartkick"
 = javascript_include_tag "coupons"
+:javascript
+  Highcharts.setOptions({
+      lang: {
+        decimalPoint: ',',
+        thousandsSep: '.',
+        printChart: 'Imprimir',
+        months: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+        shortMonths: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+        weekdays: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'],
+        loading: ['Atualizando o gráfico...aguarde']
+      }
+    })
+
 .row-fluid
   .span12
     %h3.page-title
@@ -28,3 +42,17 @@
                   %button#search_coupon.btn
                     %i.icon-search
           #coupon_info
+.row-fluid
+  .span12
+    .widget
+      .widget-title
+        %h4
+          %i.icon-dashboard
+          Relatorios
+        %span.tools
+          %a.icon-refresh{:href => "javascript:location.reload();"}
+      .widget-body
+        -#current_establishment.promotions.map { |promotion| { :name => promotion.description, :data => promotion.coupons.count } }
+        = bar_chart current_establishment.promotions.joins(:coupons).group("promotions.description").order('count_all desc').limit(10).count, library: { title: { text: 'Engajamento dos usuários / promoção' }}
+
+

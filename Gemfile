@@ -47,3 +47,8 @@ gem 'omniauth-facebook', '1.4.0'
 gem 'geocoder'
 gem 'counter_culture', '~> 0.1.18'
 gem 'rack-cors', :require => 'rack/cors'
+
+
+gem 'chartkick', '~> 1.2.0'
+gem 'groupdate', '~> 1.0.4'
+gem 'active_median', '~> 0.0.1'
