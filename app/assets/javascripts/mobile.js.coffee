@@ -132,7 +132,7 @@ $ ->
 #  sign_up()
 #  get_establishments()
 #  get_near_establishments()
-  create_point(4)
+#  create_point(4)
 #  get_points()
 #  get_news()
 #  get_establishment(4)
