@@ -29,6 +29,7 @@ LigooCard::Application.routes.draw do
     resources :coupons do
       get 'check', on: :member
     end
+    resources :establishment_users, only: :index
     resources :promotions
     resources :news
     resources :establishment_settings, only: [:index, :update]

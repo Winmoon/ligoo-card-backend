@@ -32,6 +32,6 @@ class EstablishmentSettingsController < EstablishmentController
   end
 
   def establishment_params
-    params.require(:establishment).permit(:name, :address, :description, :phone, :latitude, :longitude, :logo, :cover, :daily_point_limit, :fidelity_card)
+    params.require(:establishment).permit(:name, :address, :description, :phone, :latitude, :longitude, :logo, :cover, :daily_point_limit, :fidelity_card, :share_points)
   end
 end

@@ -10,13 +10,25 @@
         shortMonths: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
         weekdays: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'],
         loading: ['Atualizando o gráfico...aguarde']
-      }
+      },
+      colors: [
+         '#2f7ed8',
+         'red',
+         '#8bbc21',
+         '#910000',
+         '#1aadce',
+         '#492970',
+         '#f28f43',
+         '#77a1e5',
+         '#c42525',
+         '#a6c96a'
+      ]
     })
 
 .row-fluid
   .span12
     %h3.page-title
-      Dashboard
+      Painel de Controle de #{current_establishment.name}
     %ul.breadcrumb
       %li
         %i.icon-home
@@ -48,14 +60,55 @@
       .widget-title
         %h4
           %i.icon-dashboard
-          Relatorios de engajamento
+          Últimos dos checkins
         %span.tools
           %a.icon-refresh{:href => "javascript:location.reload();"}
       .widget-body
+        = line_chart current_establishment.points.share_points.group_by_hour('points.created_at').count
+.row-fluid
+  .span12
+    .widget
+      .widget-title
+        %h4
+          %i.icon-dashboard
+          Cupons / promoção
+        %span.tools
+          %a.icon-refresh{:href => "javascript:location.reload();"}
+      .widget-body
+        = pie_chart current_establishment.promotions.joins(:coupons).group("promotions.description").order('count_all desc').count
+.row-fluid
+  .span12
+    .widget
+      .widget-title
+        %h4
+          %i.icon-dashboard
+          Sexo x Idade
+        %span.tools
+          %a.icon-refresh{:href => "javascript:location.reload();"}
+      .widget-body
+        = column_chart ["M","F"].map{ |gender| {:name => gender, :data => current_establishment.users.where(gender: gender).group("date_trunc('year', age(birth_date))").uniq.count.map{ |key,value| {key.to_i => value} }.reduce(:merge) } }
+.row-fluid
+  .span12
+    .widget
+      .widget-title
+        %h4
+          %i.icon-dashboard
+          Pontos / Cliente
+        %span.tools
+          %a.icon-refresh{:href => "javascript:location.reload();"}
+      .widget-body
+        = bar_chart current_establishment.users.group("users.name").count
+.row-fluid
+  .span12
+    .widget
+      .widget-title
+        %h4
+          %i.icon-dashboard
+          Compartilhamentos no facebook
+        %span.tools
+          %a.icon-refresh{:href => "javascript:location.reload();"}
+      .widget-body
+        = line_chart current_establishment.points.share_points.group_by_day('points.created_at').count
 
-        = pie_chart current_establishment.promotions.joins(:coupons).group("promotions.description").order('count_all desc').count, library: { title: { text: 'Cupons / promoção' }}
-        %br
-        %br
-        = line_chart current_establishment.points.share_points.group_by_day('points.created_at').count, library: { title: { text: 'Compartilhamentos no facebook' }}
 
 

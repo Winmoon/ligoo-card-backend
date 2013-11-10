@@ -32,6 +32,15 @@ class User < ActiveRecord::Base
     end
   end
 
+  def self.search(search)
+    if search
+      where('name LIKE :q or email LIKE :q', q: "%#{search}%")
+    else
+      all
+    end
+  end
 
-
+  def age
+    ((Time.now.to_time - self.birth_date.to_time) / 1.years).to_i
+  end
 end

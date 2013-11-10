@@ -82,6 +82,6 @@ class ApiController < UserController
     end
 
     def user_params
-      params.require(:user).permit(:name, :birth_date, :gender)
+      params.require(:user).permit(:name, :birth_date, :gender, :phone)
     end
 end

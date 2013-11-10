@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131110132113) do
+ActiveRecord::Schema.define(version: 20131110155001) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -72,6 +72,7 @@ ActiveRecord::Schema.define(version: 20131110132113) do
     t.datetime "cover_updated_at"
     t.boolean  "daily_point_limit"
     t.string   "fidelity_card"
+    t.integer  "share_points"
   end
 
   add_index "establishments", ["email"], name: "index_establishments_on_email", unique: true, using: :btree
@@ -139,6 +140,7 @@ ActiveRecord::Schema.define(version: 20131110132113) do
     t.string   "name"
     t.date     "birth_date"
     t.string   "gender"
+    t.string   "phone"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

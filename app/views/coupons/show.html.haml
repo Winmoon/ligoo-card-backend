@@ -17,6 +17,8 @@
         %br
         = @coupon.user.email
         %br
+        = @coupon.user.phone
+        %br
         Nascimento #{l(@coupon.user.birth_date, format: :default)}
     .control-group
       %label.control-label

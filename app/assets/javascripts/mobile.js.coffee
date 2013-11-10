@@ -24,12 +24,13 @@ sign_in = ->
 sign_up = ->
   $.post url("user/users.json"),
     user:
-      name: 'Usuario Teste 2'
-      email: "admin3@winmoon.com"
+      name: 'Usuario Teste 3'
+      email: "admin34@winmoon.com"
       password: "123321321"
       password_confirmation: "123321321"
       gender: "M"
-      birth_date: "23/10/1986"
+      birth_date: "23/10/1989"
+      phone: "(62) 1234 5569"
       remember_me: 1
   , (data) ->
     console.log data
@@ -87,6 +88,7 @@ update_profile = ->
     user:
       name: "Usuário com nome atualizado"
       birth_date: '23/11/2013'
+      phone: "(62) 1234 5678"
       gender: 'M'
   , (data) ->
     console.log data

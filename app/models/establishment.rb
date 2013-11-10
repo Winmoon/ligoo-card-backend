@@ -14,10 +14,11 @@ class Establishment < ActiveRecord::Base
   has_many :likes
   has_many :coupons, through: :promotions
   has_many :points
+  has_many :users, through: :points
 
   validates :name, :address, :phone, presence: true, length: { maximum: 255 }
   validates :fidelity_card, length: { maximum: 255 }
-  validates :latitude, :longitude, presence: true
+  validates :latitude, :longitude, :share_points, presence: true
   validates :logo, :cover, :attachment_presence => true
   validates :description, length: { maximum: 420 }
 

@@ -11,6 +11,14 @@ pt-BR:
         password: Senha
         password_confirmation: Confirme a senha
         current_password: Sua senha atual
+      user:
+        created_at: Cadastro
+        email: E-mail
+        password: Senha
+        password_confirmation: Confirme a senha
+        current_password: Sua senha atual
+        name: Nome
+        points: Pontos
       establishment:
         created_at: Cadastro
         email: E-mail
@@ -28,11 +36,11 @@ pt-BR:
         cover: Capa
         daily_point_limit: Limite diário de pontos
         fidelity_card: Cartão fidelidade
+        share_points: Pontos por compartilhamento
       promotion:
         created_at: Cadastro
         description: Oferta
         points: Pontos
-        share_points: Pontos por compartilhamento
         valid_until: Validade
         errors:
           insufficient_points: "Quantidade de pontos insuficientes"

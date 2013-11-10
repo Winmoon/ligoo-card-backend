@@ -9,6 +9,7 @@
     = f.input :latitude, as: :string
     = f.input :longitude, as: :string
     = f.input :daily_point_limit, hint: "Habilitando esta opção, o cliente só poderá ganhar um ponto por dia"
+    = f.input :share_points, input_html: { class: 'input-small popovers', data: { content: "Quantidades de pontos extras ao compartilhar no Facebook", "original-title" => t('activerecord.attributes.establishment.share_points'), trigger: "hover" } }
     - if @establishment.persisted?
       .control-group
         .controls= image_tag @establishment.logo(:thumb)
