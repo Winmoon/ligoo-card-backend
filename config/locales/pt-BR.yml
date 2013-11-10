@@ -27,6 +27,7 @@ pt-BR:
         logo: "Logo"
         cover: Capa
         daily_point_limit: Limite diário de pontos
+        fidelity_card: Cartão fidelidade
       promotion:
         created_at: Cadastro
         description: Oferta

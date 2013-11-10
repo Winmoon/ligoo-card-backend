@@ -4,6 +4,7 @@ class Point < ActiveRecord::Base
   validates :user, :establishment, :point_type, presence: true, length: { :minimum => 0 }
   scope :available, where('coupon_id is null').order('created_at asc')
   scope :used, where('coupon_id is not null').order('created_at asc')
+  scope :share_points, where('point_type = ?', :share)
 
   validate :daily_limit
 

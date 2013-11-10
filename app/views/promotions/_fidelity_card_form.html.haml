@@ -1,0 +1,10 @@
+= simple_form_for(current_establishment, url: establishment_setting_path(current_establishment.id, redirect_to: promotions_path), method: :put, html: { class: 'form-horizontal' }) do |f|
+  = f.error_notification
+  .control-group
+    %label.control-label Descrição do cartão:
+    .controls
+      .input-append
+        = f.text_field :fidelity_card
+        = f.submit class: 'btn' do
+          %i.icon-save
+

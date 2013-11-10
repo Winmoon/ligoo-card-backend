@@ -48,11 +48,14 @@
       .widget-title
         %h4
           %i.icon-dashboard
-          Relatorios
+          Relatorios de engajamento
         %span.tools
           %a.icon-refresh{:href => "javascript:location.reload();"}
       .widget-body
-        -#current_establishment.promotions.map { |promotion| { :name => promotion.description, :data => promotion.coupons.count } }
-        = bar_chart current_establishment.promotions.joins(:coupons).group("promotions.description").order('count_all desc').limit(10).count, library: { title: { text: 'Engajamento dos usuários / promoção' }}
+
+        = pie_chart current_establishment.promotions.joins(:coupons).group("promotions.description").order('count_all desc').count, library: { title: { text: 'Cupons / promoção' }}
+        %br
+        %br
+        = line_chart current_establishment.points.share_points.group_by_day('points.created_at').count, library: { title: { text: 'Compartilhamentos no facebook' }}
 
 
