@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131110155001) do
+ActiveRecord::Schema.define(version: 20131110202957) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -55,17 +55,17 @@ ActiveRecord::Schema.define(version: 20131110155001) do
     t.string   "logo_content_type"
     t.integer  "logo_file_size"
     t.datetime "logo_updated_at"
-    t.string   "email",                                                        default: "", null: false
-    t.string   "encrypted_password",                                           default: "", null: false
+    t.string   "email",                                                        default: "",        null: false
+    t.string   "encrypted_password",                                           default: "",        null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                                                default: 0,  null: false
+    t.integer  "sign_in_count",                                                default: 0,         null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.integer  "likes_count",                                                  default: 0,  null: false
+    t.integer  "likes_count",                                                  default: 0,         null: false
     t.string   "cover_file_name"
     t.string   "cover_content_type"
     t.integer  "cover_file_size"
@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(version: 20131110155001) do
     t.boolean  "daily_point_limit"
     t.string   "fidelity_card"
     t.integer  "share_points"
+    t.string   "plan",                                                         default: "default"
   end
 
   add_index "establishments", ["email"], name: "index_establishments_on_email", unique: true, using: :btree

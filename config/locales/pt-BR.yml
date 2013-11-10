@@ -18,6 +18,9 @@ pt-BR:
         password_confirmation: Confirme a senha
         current_password: Sua senha atual
         name: Nome
+        birth_date: Nascimento
+        gender: Sexo
+        phone: Telefone
         points: Pontos
       establishment:
         created_at: Cadastro
@@ -37,6 +40,10 @@ pt-BR:
         daily_point_limit: Limite diário de pontos
         fidelity_card: Cartão fidelidade
         share_points: Pontos por compartilhamento
+        plan: Plano
+        plan_types:
+          default: Padrão
+          premium: Premium
       promotion:
         created_at: Cadastro
         description: Oferta

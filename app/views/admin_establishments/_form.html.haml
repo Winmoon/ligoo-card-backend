@@ -2,6 +2,7 @@
   = f.error_notification
   .inputs
 
+    = f.input :plan, as: :select, collection: [['Padrão', 'default'], ['Premium', 'premium']], include_blank: false
     = f.input :name
     = f.input :phone, input_html: { class: 'span2' }
     = f.input :address, input_html: { class: 'span6' }

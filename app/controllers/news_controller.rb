@@ -1,5 +1,7 @@
 class NewsController < EstablishmentController
+  before_action :require_premium
   before_action :set_news, only: [:show, :edit, :update, :destroy]
+
 
   def index
     @news = current_establishment.news.paginate(:page => params[:page], :per_page => 30)

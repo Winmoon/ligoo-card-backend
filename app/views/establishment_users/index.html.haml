@@ -1,3 +1,4 @@
+
 .row-fluid
   .span12
     %h3.page-title
@@ -9,10 +10,10 @@
         %span.icon-angle-right
       %li
         Clientes
-
-= link_to 'Exportar usuários', establishment_users_path(format: :csv), class: 'btn btn-info'
-%br
-%br
+- if current_establishment.plan == 'premium'
+  = link_to 'Exportar usuários', establishment_users_path(format: :csv), class: 'btn btn-info'
+  %br
+  %br
 .row-fluid
   .span12
     .widget
@@ -28,6 +29,9 @@
             %tr
               %th= t('activerecord.attributes.user.name')
               %th= t('activerecord.attributes.user.email')
+              %th= t('activerecord.attributes.user.birth_date')
+              %th= t('activerecord.attributes.user.gender')
+              %th= t('activerecord.attributes.user.phone')
               %th= t('activerecord.attributes.user.points')
               %th= t('activerecord.attributes.user.created_at')
           %tbody
@@ -36,5 +40,8 @@
               %tr.odd.gradeX
                 %td= user.name
                 %td= user.email
+                %td= l(user.birth_date, format: :default)
+                %td= user.gender
+                %td= user.phone
                 %td= count
                 %td= l(user.created_at.to_date, format: :default)

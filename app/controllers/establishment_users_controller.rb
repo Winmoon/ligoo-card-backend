@@ -7,13 +7,17 @@ class EstablishmentUsersController < EstablishmentController
     respond_to do |format|
       format.html
       format.csv do
-        x = CSV.generate do |csv|
-          @users.collect{|u| u[0]}.each do |user|
-            csv << [user.name, user.email, user.phone, user.gender, l(user.birth_date.to_date, format: :default), l(user.created_at.to_date, format: :default)]
+        if current_establishment.plan == 'premium'
+          x = CSV.generate do |csv|
+            @users.collect{|u| u[0]}.each do |user|
+              csv << [user.name, user.email, user.phone, user.gender, l(user.birth_date.to_date, format: :default), l(user.created_at.to_date, format: :default)]
+            end
           end
-        end
 
-        send_data x
+          send_data x
+        else
+          redirect_to establishment_users_path
+        end
 
       end
     end

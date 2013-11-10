@@ -59,8 +59,9 @@
             %ul.sub
               %li
                 = link_to 'Cartão de Fidelidade', promotions_path, data: { parent: '#promotions_menu' }
-              %li
-                = link_to 'Novidades', news_index_path, data: { parent: '#promotions_menu' }
+              - if current_establishment.plan == 'premium'
+                %li
+                  = link_to 'Novidades', news_index_path, data: { parent: '#promotions_menu' }
           %li
             = link_to establishment_users_path do
               %i.icon-group
