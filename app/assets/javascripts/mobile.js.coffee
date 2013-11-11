@@ -130,12 +130,12 @@ $ ->
       scope: "email,read_stream" # These are the permissions you are requesting
 
 
-#  sign_in()
+  sign_in()
 #  sign_up()
 #  get_establishments()
 #  get_near_establishments()
 #  create_point(4)
-#  get_points()
+  get_points()
 #  get_news()
 #  get_establishment(4)
 #  like_establishment(4)
