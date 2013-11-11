@@ -68,8 +68,10 @@ create_coupon = (promotion) ->
   $.get url("user/api/"+promotion+"/coupon.json"), (data) ->
     console.log data
 
-get_coupons = ->
-  $.get url("user/api/coupons.json"), (data) ->
+check_coupon = (coupon, establishment) ->
+  $.get url("user/api/"+establishment+"/check_coupon.json"),
+    coupon_id: 2
+  , (data) ->
     console.log data
 
 like_establishment = (establishment) ->
@@ -130,12 +132,12 @@ $ ->
       scope: "email,read_stream" # These are the permissions you are requesting
 
 
-  sign_in()
+#  sign_in()
 #  sign_up()
 #  get_establishments()
 #  get_near_establishments()
 #  create_point(4)
-  get_points()
+#  get_points()
 #  get_news()
 #  get_establishment(4)
 #  like_establishment(4)
@@ -144,5 +146,5 @@ $ ->
 #  get_profile()
 #  update_profile()
 #  get_profile()
-
+  check_coupon(2, 4)
 

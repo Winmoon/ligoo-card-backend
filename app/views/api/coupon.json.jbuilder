@@ -1,1 +1,1 @@
-json.extract! @coupon, :id, :promotion_id, :created_at
+json.extract! @coupon, :id, :promotion_id, :checked, :created_at

@@ -11,6 +11,7 @@ LigooCard::Application.routes.draw do
       get 'like', on: :member
       get 'coupon', on: :member
       get 'coupons', on: :collection
+      get 'check_coupon', on: :member
       get 'point', on: :member
       get 'points', on: :collection
       get 'profile', on: :collection

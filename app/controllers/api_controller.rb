@@ -1,8 +1,9 @@
 class ApiController < UserController
+  before_action :set_user
   before_action :set_establishment, only: [:establishment, :like, :point]
 
   def establishments
-    @establishments = current_user.establishments.group_by{|i| i}.map{|k,v| [k, v.count] }
+    @establishments = @user.establishments.group_by{|i| i}.map{|k,v| [k, v.count] }
   end
 
   def near_establishments
@@ -18,7 +19,7 @@ class ApiController < UserController
   end
 
   def like
-    @like = current_user.likes.new({ establishment_id: @establishment.id })
+    @like = @user.likes.new({ establishment_id: @establishment.id })
     respond_to do |format|
       if @like.save
         format.json { render action: 'like', status: :created }
@@ -29,11 +30,11 @@ class ApiController < UserController
   end
 
   def coupons
-    @coupons = current_user.coupons
+    @coupons = @user.coupons
   end
 
   def coupon
-    @coupon = current_user.coupons.new({ promotion_id: params[:id] })
+    @coupon = @user.coupons.new({ promotion_id: params[:id] })
 
     respond_to do |format|
       if @coupon.register
@@ -44,12 +45,26 @@ class ApiController < UserController
     end
   end
 
+  def check_coupon
+    @coupon = @user.coupons.find(params[:coupon_id])
+
+    @coupon.errors.add(:promotion_id, t("activerecord.attributes.coupon.errors.not_found")) if @coupon.promotion.establishment_id != params[:id].to_i
+
+    respond_to do |format|
+      if @coupon.errors.empty? && @coupon.check
+        format.json { render action: 'coupon', status: :created }
+      else
+        format.json { render json: @coupon.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   def points
-    @points = current_user.points.available
+    @points = @user.points.available
   end
 
   def point
-    @point = current_user.points.new({establishment_id: @establishment.id, point_type: params[:point_type]})
+    @point = @user.points.new({establishment_id: @establishment.id, point_type: params[:point_type]})
 
     respond_to do |format|
       if @point.save
@@ -60,12 +75,12 @@ class ApiController < UserController
     end
   end
 
+
   def profile
-    @user = current_user
+
   end
 
   def update_profile
-    @user = current_user
     respond_to do |format|
       if @user.update(user_params)
         format.json { render action: 'profile', status: :created }
@@ -80,6 +95,11 @@ class ApiController < UserController
     def set_establishment
       @establishment = Establishment.find(params[:id])
     end
+
+    def set_user
+      @user = User.find(current_user.id)
+    end
+
 
     def user_params
       params.require(:user).permit(:name, :birth_date, :gender, :phone)

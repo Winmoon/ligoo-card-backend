@@ -51,6 +51,11 @@ pt-BR:
         valid_until: Validade
         errors:
           insufficient_points: "Quantidade de pontos insuficientes"
+      coupon:
+        errors:
+          already_checked: Cupom validado em %{checked_at}
+          not_found: Este cupom não é compatível com o código do estabelecimento
+
       news:
         created_at: Cadastro
         news: Notícia

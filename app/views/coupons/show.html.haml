@@ -26,11 +26,11 @@
         - if @coupon.checked?
           .alert.alert-error
             %i.icon-check
-            Cupon validado em #{l(@coupon.updated_at, format: :default)}
+            Cupom validado em #{l(@coupon.updated_at, format: :default)}
         - else
           %button.check_coupon{ data: { id: @coupon.id } }
             %i.icon-check
-            Validar cupon
+            Validar cupom
 
   - else
     .control-group

@@ -19,6 +19,12 @@ class Coupon < ActiveRecord::Base
   end
 
   def check
-    self.update_attribute :checked, true
+    if checked?
+      self.errors.add(:promotion_id, I18n.t("activerecord.attributes.coupon.errors.already_checked", checked_at: I18n.l(self.updated_at, format: :default)))
+      return false
+    else
+      self.update_attribute :checked, true
+    end
+    true
   end
 end
