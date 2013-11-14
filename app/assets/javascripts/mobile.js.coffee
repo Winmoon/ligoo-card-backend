@@ -118,7 +118,7 @@ $ ->
       if response.authResponse
         console.log response.authResponse
         console.log "Connected! Hitting OmniAuth callback (GET users/auth/facebook/callback)..."
-        $.getJSON url("users/auth/facebook/callback")+"?"+$.param({ signed_request: response.authResponse.signedRequest }),
+        $.getJSON url("users/auth/facebook/callback")+"?"+$.param({ access_token : response.authResponse.accessToken }),
           dataType: "json"
           crossDomain: true
           xhrFields: {
