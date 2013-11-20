@@ -64,6 +64,7 @@ pt-BR:
       point:
         errors:
           daily_limit: Você só pode ganhar um ponto por dia neste estabelecimento
+          daily_share_limit: Você só pode ganhar pontos por compartilhamento uma vez por dia neste estabelecimento
   dialog:
     confirm: Você tem certeza disso?
   helpers:
