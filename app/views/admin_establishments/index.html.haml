@@ -31,6 +31,7 @@
               %th= t('activerecord.attributes.establishment.phone')
               %th= t('activerecord.attributes.establishment.email')
               %th= t('activerecord.attributes.establishment.plan')
+              %th= t('activerecord.attributes.establishment.share_points')
               %th
           %tbody
             - @establishments.each do |establishment|
@@ -41,6 +42,7 @@
                 %td= establishment.phone
                 %td= establishment.email
                 %td= t("activerecord.attributes.establishment.plan_types.#{establishment.plan}")
+                %td= establishment.share_points
                 %td.actions
                   .btn-group
                     = link_to edit_admin_establishment_path(establishment), class: 'btn', title: 'Editar' do
