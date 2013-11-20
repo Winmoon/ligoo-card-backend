@@ -60,7 +60,7 @@ class ApiController < UserController
   end
 
   def points
-    @points = @user.points.available
+    @points = @user.points
   end
 
   def point
