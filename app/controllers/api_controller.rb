@@ -63,6 +63,10 @@ class ApiController < UserController
     @points = @user.points
   end
 
+  def cards
+    @cards = @user.cards
+  end
+
   def point
     @card = @user.card(@establishment.id)
     @point = @user.points.new({establishment_id: @establishment.id, point_type: params[:point_type]})

@@ -48,6 +48,9 @@ create_card = (establishment) ->
 get_points = ->
   $.get url("user/api/points.json"), (data) ->
     console.log data
+get_cards = ->
+  $.get url("user/api/cards.json"), (data) ->
+    console.log data
 
 get_establishments = ->
   $.get url("user/api/establishments.json"), (data) ->
@@ -141,8 +144,9 @@ $ ->
 #  get_establishments()
 #  get_near_establishments()
 #  create_point(4)
-  create_card(4)
+#  create_card(4)
 #  get_points()
+  get_cards()
 #  get_news()
 #  get_establishment(4)
 #  like_establishment(4)
