@@ -14,7 +14,8 @@ class Establishment < ActiveRecord::Base
   has_many :likes
   has_many :coupons, through: :promotions
   has_many :points
-  has_many :users, through: :points
+  has_many :users, through: :cards
+  has_many :cards
 
   validates :name, :address, :phone, presence: true, length: { maximum: 255 }
   validates :fidelity_card, length: { maximum: 255 }

@@ -20,7 +20,7 @@
           = link_to qrcode_path("150x150"), target: '_blank', title: 'Imprimir QR Code' do
             %i.icon-print
       .widget-body
-        = image_tag "https://chart.googleapis.com/chart?chs=150x150&cht=qr&choe=UTF-8&chl=#{current_establishment.id}"
+        = image_tag "https://chart.googleapis.com/chart?chs=150x150&cht=qr&choe=UTF-8&chl=#{current_establishment.id},ligoocard"
 .row-fluid
   .span12
     .widget
@@ -32,7 +32,7 @@
           = link_to qrcode_path("300x300"), target: '_blank', title: 'Imprimir QR Code' do
             %i.icon-print
       .widget-body
-        = image_tag "https://chart.googleapis.com/chart?chs=300x300&cht=qr&choe=UTF-8&chl=#{current_establishment.id}"
+        = image_tag "https://chart.googleapis.com/chart?chs=300x300&cht=qr&choe=UTF-8&chl=#{current_establishment.id},ligoocard"
 .row-fluid
   .span12
     .widget
@@ -44,4 +44,4 @@
           = link_to qrcode_path("500x500"), target: '_blank', title: 'Imprimir QR Code' do
             %i.icon-print
       .widget-body
-        = image_tag "https://chart.googleapis.com/chart?chs=500x500&cht=qr&choe=UTF-8&chl=#{current_establishment.id}"
+        = image_tag "https://chart.googleapis.com/chart?chs=500x500&cht=qr&choe=UTF-8&chl=#{current_establishment.id},ligoocard"

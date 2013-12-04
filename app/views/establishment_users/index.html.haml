@@ -40,7 +40,8 @@
               %tr.odd.gradeX
                 %td= user.name
                 %td= user.email
-                %td= l(user.birth_date, format: :default)
+                %td
+                  = l(user.birth_date, format: :default) if user.birth_date
                 %td= user.gender
                 %td= user.phone
                 %td= count

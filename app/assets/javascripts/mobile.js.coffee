@@ -25,7 +25,7 @@ sign_up = ->
   $.post url("user/users.json"),
     user:
       name: 'Usuario Teste 3'
-      email: "admin34@winmoon.com"
+      email: "admin3456@winmoon.com"
       password: "123321321"
       password_confirmation: "123321321"
       gender: "M"
@@ -39,6 +39,10 @@ create_point = (establishment) ->
   $.get url("user/api/"+establishment+"/point.json"),
     point_type: "qrcode"
   , (data) ->
+    console.log data
+
+create_card = (establishment) ->
+  $.get url("user/api/"+establishment+"/card.json"), (data) ->
     console.log data
 
 get_points = ->
@@ -137,6 +141,7 @@ $ ->
 #  get_establishments()
 #  get_near_establishments()
 #  create_point(4)
+  create_card(4)
 #  get_points()
 #  get_news()
 #  get_establishment(4)
@@ -146,5 +151,5 @@ $ ->
 #  get_profile()
 #  update_profile()
 #  get_profile()
-  check_coupon(2, 4)
+#  check_coupon(2, 4)
 

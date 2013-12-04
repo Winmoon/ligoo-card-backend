@@ -1,6 +1,6 @@
 class ApiController < UserController
   before_action :set_user
-  before_action :set_establishment, only: [:establishment, :like, :point]
+  before_action :set_establishment, only: [:establishment, :like, :point, :card]
 
   def establishments
     @establishments = @user.establishments.group_by{|i| i}.map{|k,v| [k, v.count] }
@@ -64,10 +64,12 @@ class ApiController < UserController
   end
 
   def point
+    @card = @user.card(@establishment.id)
     @point = @user.points.new({establishment_id: @establishment.id, point_type: params[:point_type]})
 
     respond_to do |format|
       if @point.save
+
         format.json { render action: 'point', status: :created }
       else
         format.json { render json: @point.errors, status: :unprocessable_entity }
@@ -75,6 +77,15 @@ class ApiController < UserController
     end
   end
 
+  def card
+    respond_to do |format|
+      if @card = @user.card(@establishment.id)
+        format.json { render action: 'card', status: :created }
+      else
+        format.json { render json: @card.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 
   def profile
 
@@ -89,7 +100,6 @@ class ApiController < UserController
       end
     end
   end
-
 
   private
     def set_establishment

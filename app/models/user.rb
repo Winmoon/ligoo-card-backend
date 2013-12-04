@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   has_many :establishments, through: :points
   has_many :likes
   has_many :coupons
+  has_many :cards
 
 
 
@@ -42,5 +43,9 @@ class User < ActiveRecord::Base
 
   def age
     ((Time.now.to_time - self.birth_date.to_time) / 1.years).to_i
+  end
+
+  def card(establishment_id)
+    cards.find_or_create_by(establishment_id: establishment_id)
   end
 end
