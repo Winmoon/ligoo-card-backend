@@ -44,5 +44,5 @@
                   = l(user.birth_date, format: :default) if user.birth_date
                 %td= user.gender
                 %td= user.phone
-                %td= count
+                %td= user.points.length
                 %td= l(user.created_at.to_date, format: :default)

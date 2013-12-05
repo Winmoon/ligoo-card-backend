@@ -1,0 +1,52 @@
+
+.row-fluid
+  .span12
+    %h3.page-title
+      Pontos distribuidos
+    %ul.breadcrumb
+      %li
+        %i.icon-home
+        = link_to 'Dashboard', establishment_index_path
+        %span.icon-angle-right
+      %li
+        Pontos distribuidos
+- if current_establishment.plan == 'premium'
+  = link_to 'Exportar usuários', establishment_points_path(format: :csv), class: 'btn btn-info'
+  %br
+  %br
+.row-fluid
+  .span12
+    .widget
+      .widget-title
+        %h4
+          %i.icon-tags
+          Pontos distribuidos
+        %span.tools
+          %a.icon-refresh{:href => "javascript:location.reload();"}
+      .widget-body
+        %table#sample_1.table.table-striped.table-bordered
+          %thead
+            %tr
+              %th= t('activerecord.attributes.point.id')
+              %th= t('activerecord.attributes.user.name')
+              %th= t('activerecord.attributes.point.created_at')
+              %th= t('activerecord.attributes.point.used')
+              %th= t('activerecord.attributes.point.coupon')
+              %th= t('activerecord.attributes.point.updated_at')
+
+          %tbody
+            - @points.each do |point|
+
+              %tr.odd.gradeX
+                %td= point.id
+                %td= point.user.name
+                %td= l(point.created_at, format: :default)
+                - if point.coupon
+                  %td= t("simple_form.yes")
+                  %td= point.coupon.promotion.description
+                  %td= l(point.created_at, format: :default)
+                - else
+                  %td= t("simple_form.no")
+                  %td
+                  %td
+        = will_paginate @points, :renderer => BootstrapPaginationHelper::LinkRenderer

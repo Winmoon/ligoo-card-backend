@@ -62,6 +62,11 @@ pt-BR:
         errors:
           last_post: Você só pode cadastrar uma notícia por semana
       point:
+        id: ID
+        created_at: Criado em
+        updated_at: Validado em
+        used: Utilizado
+        coupon: Promoção
         errors:
           daily_limit: Você só pode ganhar um ponto por dia neste estabelecimento
           daily_share_limit: Você só pode ganhar pontos por compartilhamento uma vez por dia neste estabelecimento

@@ -33,6 +33,7 @@ LigooCard::Application.routes.draw do
       get 'check', on: :member
     end
     resources :establishment_users, only: :index
+    resources :establishment_points, only: :index
     resources :promotions
     resources :news
     resources :establishment_settings, only: [:index, :update]

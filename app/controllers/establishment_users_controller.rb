@@ -1,5 +1,4 @@
 class EstablishmentUsersController < EstablishmentController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
     @users = current_establishment.users.search(params[:search]).group_by{|i| i}.map{|k,v| [k, v.count] }

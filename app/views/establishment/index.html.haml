@@ -55,6 +55,54 @@
                     %i.icon-search
           #coupon_info
 .row-fluid
+  .span8
+    .widget
+      .widget-title
+        %h4
+          %i.icon-user
+          Últimos Cadastros
+        %span.tools
+          %a.icon-refresh{:href => "javascript:location.reload();"}
+      .widget-body
+        %table.table.table-hover
+          %thead
+            %tr
+              %th= t('activerecord.attributes.user.name')
+              %th= t('activerecord.attributes.user.email')
+              %th= t('activerecord.attributes.user.created_at')
+          %tbody
+            - current_establishment.users.order('created_at desc').limit(10).each do |user|
+              %tr.odd.gradeX
+                %td= user.name
+                %td= user.email
+                %td= l(user.created_at.to_date, format: :default)
+        %br
+        .row-fluid
+          .pull-right= link_to "Ver todos clientes", establishment_users_path
+
+  .span4
+    .widget
+      .widget-title
+        %h4
+          %i.icon-tags
+          Últimas Validações
+        %span.tools
+          %a.icon-refresh{:href => "javascript:location.reload();"}
+      .widget-body
+        %table.table.table-hover
+          %thead
+
+          %tbody
+            - current_establishment.coupons.where('checked = true').order('created_at desc').limit(10).each do |coupon|
+              %tr.odd.gradeX
+                %td= coupon.user.name
+                %td
+                  %strong.italic= l(coupon.created_at, format: :default)
+        %br
+        .row-fluid
+          .pull-right= link_to "Ver pontos distribuidos", establishment_points_path
+
+.row-fluid
   .span12
     .widget
       .widget-title
@@ -97,7 +145,7 @@
         %span.tools
           %a.icon-refresh{:href => "javascript:location.reload();"}
       .widget-body
-        = bar_chart current_establishment.points.group("user_id").count.values.each_with_object(Hash.new(0)) {|e, h| h["#{e} pontos"] += 1}.sort
+        = bar_chart current_establishment.points.group("user_id").count.values.each_with_object(Hash.new(0)) {|e, h| h["#{e} pontos"] += 1}
 .row-fluid
   .span12
     .widget
