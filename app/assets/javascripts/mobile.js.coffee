@@ -146,7 +146,7 @@ $ ->
 #  create_point(4)
 #  create_card(4)
 #  get_points()
-  get_cards()
+#  get_cards()
 #  get_news()
 #  get_establishment(4)
 #  like_establishment(4)

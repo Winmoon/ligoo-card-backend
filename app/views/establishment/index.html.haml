@@ -97,7 +97,7 @@
         %span.tools
           %a.icon-refresh{:href => "javascript:location.reload();"}
       .widget-body
-        = bar_chart current_establishment.users.group("users.name").count
+        = bar_chart current_establishment.points.group("user_id").count.values.each_with_object(Hash.new(0)) {|e, h| h["#{e} pontos"] += 1}.sort
 .row-fluid
   .span12
     .widget

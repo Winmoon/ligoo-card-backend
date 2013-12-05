@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 
   has_many :points
   has_many :establishments, through: :points
+  has_many :news, -> { distinct }, through: :establishments
   has_many :likes
   has_many :coupons
   has_many :cards

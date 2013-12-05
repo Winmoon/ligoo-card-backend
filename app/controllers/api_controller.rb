@@ -11,7 +11,7 @@ class ApiController < UserController
   end
 
   def news
-    @news = News.order('created_at desc').paginate(:page => params[:page], :per_page => 10)
+    @news = @user.news.order('created_at desc').paginate(:page => params[:page], :per_page => 10)
   end
 
   def establishment
