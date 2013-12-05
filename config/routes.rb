@@ -25,7 +25,7 @@ LigooCard::Application.routes.draw do
     devise_for :admins, controllers: { sessions: "admins/sessions", passwords: "admins/passwords" , registrations: "admins/registrations" }
     resources :admin_establishments, except: [:show]
   end
-  resources :admin, only: :index
+  resources :admin, only: [:index, :show]
 
   scope :establishment do
     devise_for :establishments, controllers: { sessions: "establishments/sessions", passwords: "establishments/passwords" , registrations: "establishments/registrations" }

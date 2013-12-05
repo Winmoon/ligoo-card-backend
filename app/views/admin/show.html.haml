@@ -28,11 +28,14 @@
 .row-fluid
   .span12
     %h3.page-title
-      Painel de Controle
+      Relatórios de #{@establishment.name}
     %ul.breadcrumb
       %li
         %i.icon-home
         = link_to 'Dashboard', admin_index_path
+        %span.icon-angle-right
+      %li
+        Relatórios de #{@establishment.name}
 
 .row-fluid
   .span8
@@ -51,7 +54,7 @@
               %th= t('activerecord.attributes.user.email')
               %th= t('activerecord.attributes.user.created_at')
           %tbody
-            - User.order('created_at desc').limit(20).each do |user|
+            - @establishment.users.order('created_at desc').limit(10).each do |user|
               %tr.odd.gradeX
                 %td= user.name
                 %td= user.email
@@ -70,9 +73,8 @@
           %thead
 
           %tbody
-            - Coupon.where('checked = true').order('created_at desc').limit(10).each do |coupon|
+            - @establishment.coupons.where('checked = true').order('created_at desc').limit(10).each do |coupon|
               %tr.odd.gradeX
-                %td= coupon.promotion.establishment.name
                 %td= coupon.user.name
                 %td
                   %strong.italic= l(coupon.created_at, format: :default)
@@ -87,7 +89,18 @@
         %span.tools
           %a.icon-refresh{:href => "javascript:location.reload();"}
       .widget-body
-        = line_chart Point.share_points.group_by_hour('points.created_at').count
+        = line_chart @establishment.points.share_points.group_by_hour('points.created_at').count
+.row-fluid
+  .span12
+    .widget
+      .widget-title
+        %h4
+          %i.icon-dashboard
+          Cupons / promoção
+        %span.tools
+          %a.icon-refresh{:href => "javascript:location.reload();"}
+      .widget-body
+        = pie_chart @establishment.promotions.joins(:coupons).group("promotions.description").order('count_all desc').count
 .row-fluid
   .span12
     .widget
@@ -98,7 +111,7 @@
         %span.tools
           %a.icon-refresh{:href => "javascript:location.reload();"}
       .widget-body
-        = column_chart ["M","F"].map{ |gender| {:name => gender, :data => User.where(gender: gender).group("date_trunc('year', age(birth_date))").uniq.count.map{ |key,value| {key.to_i => value} }.reduce(:merge) } }
+        = column_chart ["M","F"].map{ |gender| {:name => gender, :data => @establishment.users.where(gender: gender).group("date_trunc('year', age(birth_date))").uniq.count.map{ |key,value| {key.to_i => value} }.reduce(:merge) } }
 .row-fluid
   .span12
     .widget
@@ -109,7 +122,7 @@
         %span.tools
           %a.icon-refresh{:href => "javascript:location.reload();"}
       .widget-body
-        = bar_chart Point.group("user_id").count.values.each_with_object(Hash.new(0)) {|e, h| h["#{e} pontos"] += 1}
+        = bar_chart @establishment.points.group("user_id").count.values.each_with_object(Hash.new(0)) {|e, h| h["#{e} pontos"] += 1}
 .row-fluid
   .span12
     .widget
@@ -120,7 +133,7 @@
         %span.tools
           %a.icon-refresh{:href => "javascript:location.reload();"}
       .widget-body
-        = line_chart Point.share_points.group_by_day('points.created_at').count
+        = line_chart @establishment.points.share_points.group_by_day('points.created_at').count
 
 
 

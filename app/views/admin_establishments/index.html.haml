@@ -49,4 +49,6 @@
                       %i.icon-edit
                     = link_to admin_establishment_path(establishment), :method => :delete, :data => { :confirm => t('dialog.confirm') }, class: 'btn', title: 'Excluír' do
                       %i.icon-remove
+                    = link_to admin_path(establishment), class: 'btn', title: 'Relatórios' do
+                      %i.icon-dashboard
         = will_paginate @establishments, :renderer => BootstrapPaginationHelper::LinkRenderer
