@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:facebook]
 
   has_many :points
-  has_many :establishments, through: :points
+  has_many :establishments, through: :cards
   has_many :news, -> { distinct }, through: :establishments
   has_many :likes
   has_many :coupons
