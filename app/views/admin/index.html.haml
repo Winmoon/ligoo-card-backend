@@ -83,17 +83,6 @@
       .widget-title
         %h4
           %i.icon-dashboard
-          Últimos dos checkins
-        %span.tools
-          %a.icon-refresh{:href => "javascript:location.reload();"}
-      .widget-body
-        = line_chart Point.share_points.group_by_hour('points.created_at').count
-.row-fluid
-  .span12
-    .widget
-      .widget-title
-        %h4
-          %i.icon-dashboard
           Sexo x Idade
         %span.tools
           %a.icon-refresh{:href => "javascript:location.reload();"}

@@ -11,8 +11,6 @@ class User < ActiveRecord::Base
   has_many :coupons
   has_many :cards
 
-
-
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
     user = User.where(:provider => auth.provider, :uid => auth.uid).first
     unless user
@@ -48,5 +46,9 @@ class User < ActiveRecord::Base
 
   def card(establishment_id)
     cards.find_or_create_by(establishment_id: establishment_id)
+  end
+
+  def avaliable_establishment_points(establishment_id)
+    self.points.available.where(establishment_id: establishment_id)
   end
 end

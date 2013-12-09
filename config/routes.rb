@@ -13,7 +13,7 @@ LigooCard::Application.routes.draw do
       get 'coupons', on: :collection
       get 'check_coupon', on: :member
       get 'point', on: :member
-      get 'points', on: :collection
+      get 'points', on: :member
       get 'card', on: :member
       get 'cards', on: :collection
       get 'profile', on: :collection

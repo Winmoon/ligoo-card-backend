@@ -60,7 +60,7 @@ class ApiController < UserController
   end
 
   def points
-    @points = @user.points.available
+    @points = @user.avaliable_establishment_points(params[:id])
   end
 
   def cards

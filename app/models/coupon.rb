@@ -4,7 +4,7 @@ class Coupon < ActiveRecord::Base
   has_many :points
 
   def register
-    available_points = self.user.points.available.limit(promotion.points)
+    available_points = self.user.points.available.where(establishment_id: promotion.establishment.id).limit(promotion.points)
     if available_points.length == promotion.points
       if self.save
         available_points.each do |point|
