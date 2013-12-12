@@ -51,6 +51,14 @@
             = link_to admin_establishments_path do
               %i.icon-group
               Estabelecimentos
+          %li
+            = link_to admin_users_path do
+              %i.icon-group
+              Clientes
+          %li
+            = link_to admin_points_path do
+              %i.icon-tags
+              Pontos distribuidos
       #body
         .container-fluid
           - flash.each do |key, msg|
