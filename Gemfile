@@ -52,3 +52,5 @@ gem 'rack-cors', :require => 'rack/cors'
 gem 'chartkick', '~> 1.2.0'
 gem 'groupdate', '~> 1.0.4'
 gem 'active_median', '~> 0.0.1'
+
+gem "pushmeup", "~> 0.1.2"
